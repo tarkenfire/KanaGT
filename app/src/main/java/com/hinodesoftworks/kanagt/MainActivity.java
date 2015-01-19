@@ -1,5 +1,8 @@
 package com.hinodesoftworks.kanagt;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.net.Uri;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -9,12 +12,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends ActionBarActivity implements
+        HomeFragment.OnHomeFragmentInteractionListener, HiraganaListFragment.OnHiraListInteractionListener
 {
 
     //nav drawer variables
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
+    private FragmentManager mFragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -22,19 +27,22 @@ public class MainActivity extends ActionBarActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mFragmentManager = getFragmentManager();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.app_name, R.string.app_name);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        mDrawerToggle.syncState();
+
+
+        HomeFragment testFrag = new HomeFragment();
+        changeViewFragment(testFrag);
     }
 
     @Override
@@ -66,6 +74,7 @@ public class MainActivity extends ActionBarActivity
             return true;
         }
 
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -74,5 +83,23 @@ public class MainActivity extends ActionBarActivity
 
 
     //utility methods
+    private void changeViewFragment(Fragment fragToShow){
+        mFragmentManager.beginTransaction()
+                .replace(R.id.content_view, fragToShow)
+                .commit();
+    }
 
+    //fragment listener methods
+
+    //home fragment
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
+    }
+
+    //hira list
+    @Override
+    public void onFramentLoaded(Uri uri) {
+
+    }
 }

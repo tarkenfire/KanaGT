@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    card_view:cardCornerRadius="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/kana_card_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="46sp"
+            android:text="あ"/>
+
+        <TextView
+            android:id="@+id/kana_card_roma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/kana_card_display"
+            android:layout_toEndOf="@id/kana_card_display"
+            android:text="a"
+            />
+
+        <TextView
+            android:id="@+id/kana_card_info1_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/kana_card_display"
+            android:layout_toEndOf="@id/kana_card_display"
+            android:layout_below="@id/kana_card_roma"
+            android:text="INFO 1"/>
+
+        <TextView
+            android:id="@+id/kana_card_info2_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/kana_card_display"
+            android:layout_toEndOf="@id/kana_card_display"
+            android:layout_below="@id/kana_card_info1_display"
+            android:text="INFO 2"/>
+
+
+            <ImageView
+                android:id="@+id/kana_card_diagram"
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:layout_below="@id/kana_card_info2_display"
+                android:adjustViewBounds="true"/>
+
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

@@ -62,9 +62,7 @@ public class NavMenuListAdapter extends ArrayAdapter<NavMenuItem> {
                 TextView iText =(TextView) holder.findViewById(R.id.nav_row_item_text);
                 iText.setText(item.getName());
                 break;
-
         }
-
 
         return holder;
     }

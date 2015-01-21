@@ -2,24 +2,34 @@ package com.hinodesoftworks.kanagt;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.net.Uri;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.hinodesoftworks.kanagt.util.DatabaseManager;
+import com.hinodesoftworks.kanagt.util.NavMenuListAdapter;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+
 
 public class MainActivity extends ActionBarActivity implements
-        HomeFragment.OnHomeFragmentInteractionListener, HiraganaListFragment.OnHiraListInteractionListener
+        HomeFragment.OnHomeFragmentInteractionListener, HiraganaListFragment.OnHiraListInteractionListener,
+        NavDrawerFragment.OnNavMenuInteractionListener
 {
 
     //nav drawer variables
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private FragmentManager mFragmentManager;
+    private DatabaseManager mDatabaseManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -40,8 +50,17 @@ public class MainActivity extends ActionBarActivity implements
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
+        //init 3rd party image loader library for easier asset management
+        ImageLoaderConfiguration imageLoaderConfiguration = new ImageLoaderConfiguration.Builder(this)
+                .build();
 
-        HomeFragment testFrag = new HomeFragment();
+        ImageLoader.getInstance().init(imageLoaderConfiguration);
+
+        //init database
+        mDatabaseManager = new DatabaseManager(this);
+        Cursor c = mDatabaseManager.getAllHira();
+
+        HiraganaListFragment testFrag = new HiraganaListFragment();
         changeViewFragment(testFrag);
     }
 
@@ -63,18 +82,6 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
-
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -97,9 +104,16 @@ public class MainActivity extends ActionBarActivity implements
 
     }
 
+    //nav drawer
+    @Override
+    public void onNavItemSelected(NavMenuListAdapter.NavLocation location) {
+        Log.i("Location String", location.toString());
+        mDrawerLayout.closeDrawers();
+    }
+
     //hira list
     @Override
-    public void onFramentLoaded(Uri uri) {
-
+    public void onHiraListFragmentLoaded(HiraganaListFragment sender) {
+        sender.displayHiraList(mDatabaseManager.getAllHira());
     }
 }

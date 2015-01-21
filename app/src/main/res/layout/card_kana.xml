@@ -43,17 +43,18 @@
             android:layout_below="@id/kana_card_info1_display"
             android:text="INFO 2"/>
 
-
+<HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/kana_card_info2_display">
             <ImageView
                 android:id="@+id/kana_card_diagram"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
-                android:scaleType="fitXY"
-                android:layout_below="@id/kana_card_info2_display"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:scaleType="fitStart"
+
                 android:adjustViewBounds="true"/>
-
-
-
+</HorizontalScrollView>
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

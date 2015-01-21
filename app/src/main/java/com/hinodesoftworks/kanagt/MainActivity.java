@@ -60,7 +60,7 @@ public class MainActivity extends ActionBarActivity implements
         mDatabaseManager = new DatabaseManager(this);
         Cursor c = mDatabaseManager.getAllHira();
 
-        HiraganaListFragment testFrag = new HiraganaListFragment();
+        HomeFragment testFrag = new HomeFragment();
         changeViewFragment(testFrag);
     }
 
@@ -108,6 +108,33 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     public void onNavItemSelected(NavMenuListAdapter.NavLocation location) {
         Log.i("Location String", location.toString());
+        switch (location){
+            case LOC_HOME:
+                changeViewFragment(new HomeFragment());
+                break;
+            case LOC_HIRA_LIST:
+                changeViewFragment(new HiraganaListFragment());
+                break;
+            case LOC_HIRA_CHART:
+                break;
+            case LOC_HIRA_P_QUIZ:
+                break;
+            case LOC_HIRA_R_QUIZ:
+                break;
+            case LOC_KATA_LIST:
+                break;
+            case LOC_KATA_CHART:
+                break;
+            case LOC_KATA_P_QUIZ:
+                break;
+            case LOC_KATA_R_QUIZ:
+                break;
+            case LOC_STATS:
+                break;
+            case LOC_SETTINGS:
+                break;
+        }
+
         mDrawerLayout.closeDrawers();
     }
 

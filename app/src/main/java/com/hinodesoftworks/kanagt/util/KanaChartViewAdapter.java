@@ -28,7 +28,7 @@ public class KanaChartViewAdapter extends RecyclerView.Adapter<KanaChartViewAdap
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
-        
+
     }
 
 

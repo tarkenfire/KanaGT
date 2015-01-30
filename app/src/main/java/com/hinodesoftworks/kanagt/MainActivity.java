@@ -22,7 +22,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 public class MainActivity extends ActionBarActivity implements
         HomeFragment.OnHomeFragmentInteractionListener, HiraganaListFragment.OnHiraListInteractionListener,
-        NavDrawerFragment.OnNavMenuInteractionListener
+        NavDrawerFragment.OnNavMenuInteractionListener, KatakanaListFragment.OnKataListLoadedListener,
+        HiraganaChartFragment.OnHiraganaChartFragmentListener
 {
 
     //nav drawer variables
@@ -122,6 +123,7 @@ public class MainActivity extends ActionBarActivity implements
             case LOC_HIRA_R_QUIZ:
                 break;
             case LOC_KATA_LIST:
+                changeViewFragment(new KatakanaListFragment());
                 break;
             case LOC_KATA_CHART:
                 break;
@@ -130,8 +132,10 @@ public class MainActivity extends ActionBarActivity implements
             case LOC_KATA_R_QUIZ:
                 break;
             case LOC_STATS:
+                changeViewFragment(new StatsFragment());
                 break;
             case LOC_SETTINGS:
+                changeViewFragment(new PrefsFragment());
                 break;
         }
 
@@ -142,5 +146,24 @@ public class MainActivity extends ActionBarActivity implements
     @Override
     public void onHiraListFragmentLoaded(HiraganaListFragment sender) {
         sender.displayHiraList(mDatabaseManager.getAllHira());
+    }
+
+    //kata list
+
+    @Override
+    public void onKataListLoaded(KatakanaListFragment sender) {
+        sender.displayKataList(mDatabaseManager.getAllKata());
+    }
+
+    //hira chart
+
+    @Override
+    public void onHiraganaChartLoaded(HiraganaChartFragment sender) {
+
+    }
+
+    @Override
+    public void onHiraganaChartItemSelected() {
+
     }
 }

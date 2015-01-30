@@ -32,5 +32,18 @@ public class DatabaseManager extends SQLiteAssetHelper {
         return c;
     }
 
+    public Cursor getAllKata(){
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+
+        qb.setTables("katakana");
+        Cursor c = qb.query(db, null, null, null, null, null, null);
+        c.moveToFirst();
+
+        db.close();
+
+        return c;
+    }
+
 
 }

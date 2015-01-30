@@ -28,7 +28,11 @@ public class KanaChartViewAdapter extends RecyclerView.Adapter<KanaChartViewAdap
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        mCursor.moveToPosition(i);
 
+        //TODO make static constants in database manager for better readability
+        viewHolder.kanaDisplay.setText(mCursor.getString(0));
+        viewHolder.romaDisplay.setText(mCursor.getString(1));
     }
 
 

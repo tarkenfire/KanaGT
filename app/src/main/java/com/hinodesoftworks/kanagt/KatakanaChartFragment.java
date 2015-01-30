@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,14 +14,14 @@ import android.view.ViewGroup;
 
 import com.hinodesoftworks.kanagt.util.KanaChartViewAdapter;
 
-public class HiraganaChartFragment extends Fragment {
+public class KatakanaChartFragment extends Fragment {
 
-    private OnHiraganaChartFragmentListener mListener;
+    private OnKatakanaChartFragmentListener mListener;
     private RecyclerView mRecyclerView;
     private Context ctx;
 
-    public HiraganaChartFragment() {
-
+    public KatakanaChartFragment() {
+        // Required empty public constructor
     }
 
     public void setContext(Context context){
@@ -33,8 +32,8 @@ public class HiraganaChartFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View holder = inflater.inflate(R.layout.fragment_hiragana_chart, container, false);
-        mRecyclerView = (RecyclerView) holder.findViewById(R.id.hira_chart);
+        View holder = inflater.inflate(R.layout.fragment_katakana_chart, container, false);
+        mRecyclerView = (RecyclerView) holder.findViewById(R.id.kata_chart);
         return holder;
     }
 
@@ -42,15 +41,16 @@ public class HiraganaChartFragment extends Fragment {
     public void onResume() {
         super.onResume();
         mRecyclerView.setLayoutManager(new GridLayoutManager(ctx, 5));
-        mListener.onHiraganaChartLoaded(this);
+        mListener.onKatakanaChartLoaded(this);
 
     }
+
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            mListener = (OnHiraganaChartFragmentListener) activity;
+            mListener = (OnKatakanaChartFragmentListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
@@ -63,15 +63,14 @@ public class HiraganaChartFragment extends Fragment {
         mListener = null;
     }
 
-    public void showHiraChart(Cursor itemsToDisplay){
+    public void showKataChart(Cursor itemsToDisplay){
         KanaChartViewAdapter adapter = new KanaChartViewAdapter(itemsToDisplay);
         mRecyclerView.setAdapter(adapter);
     }
 
-    public interface OnHiraganaChartFragmentListener {
+    public interface OnKatakanaChartFragmentListener {
         // TODO: Update argument type and name
-        public void onHiraganaChartLoaded(HiraganaChartFragment sender);
-        public void onHiraganaChartItemSelected();
+        public void onKatakanaChartLoaded(KatakanaChartFragment sender);
     }
 
 }

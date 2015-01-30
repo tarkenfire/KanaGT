@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.hinodesoftworks.kanagt.util.DatabaseManager;
 import com.hinodesoftworks.kanagt.util.NavMenuListAdapter;
+import com.hinodesoftworks.kanagt.util.QuizManager;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -23,7 +24,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 public class MainActivity extends ActionBarActivity implements
         HomeFragment.OnHomeFragmentInteractionListener, HiraganaListFragment.OnHiraListInteractionListener,
         NavDrawerFragment.OnNavMenuInteractionListener, KatakanaListFragment.OnKataListLoadedListener,
-        HiraganaChartFragment.OnHiraganaChartFragmentListener
+        HiraganaChartFragment.OnHiraganaChartFragmentListener, KatakanaChartFragment.OnKatakanaChartFragmentListener,
+        QuizSetupFragment.OnQuizSetupListener
 {
 
     //nav drawer variables
@@ -97,14 +99,6 @@ public class MainActivity extends ActionBarActivity implements
                 .commit();
     }
 
-    //fragment listener methods
-
-    //home fragment
-    @Override
-    public void onFragmentInteraction(Uri uri) {
-
-    }
-
     //nav drawer
     @Override
     public void onNavItemSelected(NavMenuListAdapter.NavLocation location) {
@@ -117,19 +111,37 @@ public class MainActivity extends ActionBarActivity implements
                 changeViewFragment(new HiraganaListFragment());
                 break;
             case LOC_HIRA_CHART:
+                HiraganaChartFragment hchart = new HiraganaChartFragment();
+                hchart.setContext(this);
+                changeViewFragment(hchart);
                 break;
             case LOC_HIRA_P_QUIZ:
+                QuizSetupFragment hpSetup = new QuizSetupFragment();
+                hpSetup.setQuizMode(QuizManager.QuizMode.MODE_HIRA_P_QUIZ);
+                changeViewFragment(hpSetup);
                 break;
             case LOC_HIRA_R_QUIZ:
+                QuizSetupFragment hrSetup = new QuizSetupFragment();
+                hrSetup.setQuizMode(QuizManager.QuizMode.MODE_HIRA_R_QUIZ);
+                changeViewFragment(hrSetup);
                 break;
             case LOC_KATA_LIST:
                 changeViewFragment(new KatakanaListFragment());
                 break;
             case LOC_KATA_CHART:
+                KatakanaChartFragment kchart = new KatakanaChartFragment();
+                kchart.setContext(this);
+                changeViewFragment(kchart);
                 break;
             case LOC_KATA_P_QUIZ:
+                QuizSetupFragment kpSetup = new QuizSetupFragment();
+                kpSetup.setQuizMode(QuizManager.QuizMode.MODE_KATA_P_QUIZ);
+                changeViewFragment(kpSetup);
                 break;
             case LOC_KATA_R_QUIZ:
+                QuizSetupFragment krSetup = new QuizSetupFragment();
+                krSetup.setQuizMode(QuizManager.QuizMode.MODE_KATA_R_QUIZ);
+                changeViewFragment(krSetup);
                 break;
             case LOC_STATS:
                 changeViewFragment(new StatsFragment());
@@ -138,8 +150,13 @@ public class MainActivity extends ActionBarActivity implements
                 changeViewFragment(new PrefsFragment());
                 break;
         }
-
         mDrawerLayout.closeDrawers();
+    }
+
+    //home fragment
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
     //hira list
@@ -159,11 +176,25 @@ public class MainActivity extends ActionBarActivity implements
 
     @Override
     public void onHiraganaChartLoaded(HiraganaChartFragment sender) {
-
+        sender.showHiraChart(mDatabaseManager.getAllHira());
     }
 
     @Override
     public void onHiraganaChartItemSelected() {
+
+    }
+
+    //kata chart
+
+    @Override
+    public void onKatakanaChartLoaded(KatakanaChartFragment sender) {
+        sender.showKataChart(mDatabaseManager.getAllKata());
+    }
+
+    //quiz setup fragment
+
+    @Override
+    public void onQuizStartButtonPressed() {
 
     }
 }

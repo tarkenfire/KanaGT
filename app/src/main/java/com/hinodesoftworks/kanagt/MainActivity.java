@@ -2,6 +2,7 @@ package com.hinodesoftworks.kanagt;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.net.Uri;
@@ -195,6 +196,7 @@ public class MainActivity extends ActionBarActivity implements
 
     @Override
     public void onQuizStartButtonPressed() {
-
+        Intent sender = new Intent(this, QuizActivity.class);
+        startActivity(sender);
     }
 }

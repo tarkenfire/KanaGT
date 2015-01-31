@@ -1,0 +1,55 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hinodesoftworks.kanagt.QuizActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/q_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:background="?attr/colorPrimary"
+
+        />
+
+    <TextView
+        android:id="@+id/quiz_question_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="128sp"
+        android:layout_below="@id/q_toolbar"/>
+
+    <Button
+        android:id="@+id/quiz_button_1"
+        android:layout_width="140sp"
+        android:layout_height="140sp"
+        android:layout_below="@id/quiz_question_display"
+        />
+
+    <Button
+        android:id="@+id/quiz_button_2"
+        android:layout_width="140sp"
+        android:layout_height="140sp"
+        android:layout_below="@id/quiz_question_display"
+        android:layout_toRightOf="@id/quiz_button_1"
+        android:layout_toEndOf="@id/quiz_button_1"
+        />
+
+    <Button
+        android:id="@+id/quiz_button_3"
+        android:layout_width="140sp"
+        android:layout_height="140sp"
+        android:layout_below="@id/quiz_button_1"
+
+        />
+
+    <Button
+        android:id="@+id/quiz_button_4"
+        android:layout_width="140sp"
+        android:layout_height="140sp"
+        android:layout_below="@id/quiz_button_2"
+        android:layout_toRightOf="@id/quiz_button_3"
+        android:layout_toEndOf="@id/quiz_button_3"
+        />
+
+</RelativeLayout>

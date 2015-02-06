@@ -45,5 +45,17 @@ public class DatabaseManager extends SQLiteAssetHelper {
         return c;
     }
 
+    public Cursor getKanaDetails(String table, String character){
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+
+        qb.setTables(table);
+        Cursor c = qb.query(db, null, "character='" + character + "'", null, null, null, null);
+        c.moveToFirst();
+        db.close();
+
+        return c;
+    }
+
 
 }

@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.hinodesoftworks.kanagt.util.DatabaseManager;
 import com.hinodesoftworks.kanagt.util.NavMenuListAdapter;
@@ -174,15 +175,19 @@ public class MainActivity extends ActionBarActivity implements
     }
 
     //hira chart
-
     @Override
     public void onHiraganaChartLoaded(HiraganaChartFragment sender) {
         sender.showHiraChart(mDatabaseManager.getAllHira());
     }
 
     @Override
-    public void onHiraganaChartItemSelected() {
+    public void onHiraganaChartItemSelected(HiraganaChartFragment sender, String kana) {
+        Cursor data = mDatabaseManager.getKanaDetails("hiragana", kana);
+        //todo create constants to represent row numbers
+        sender.showDetailDialog(data.getString(0), data.getString(1), data.getInt(2),
+                                data.getInt(3), data.getInt(4), data.getString(5));
 
+        data.close();
     }
 
     //kata chart

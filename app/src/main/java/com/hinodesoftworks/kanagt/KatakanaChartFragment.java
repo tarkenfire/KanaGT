@@ -14,7 +14,8 @@ import android.view.ViewGroup;
 
 import com.hinodesoftworks.kanagt.util.KanaChartViewAdapter;
 
-public class KatakanaChartFragment extends Fragment {
+public class KatakanaChartFragment extends Fragment
+                implements KanaChartViewAdapter.OnChartItemClickListener{
 
     private OnKatakanaChartFragmentListener mListener;
     private RecyclerView mRecyclerView;
@@ -64,8 +65,13 @@ public class KatakanaChartFragment extends Fragment {
     }
 
     public void showKataChart(Cursor itemsToDisplay){
-        KanaChartViewAdapter adapter = new KanaChartViewAdapter(itemsToDisplay);
+        KanaChartViewAdapter adapter = new KanaChartViewAdapter(itemsToDisplay, this);
         mRecyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemClicked(String selectedCharacter) {
+
     }
 
     public interface OnKatakanaChartFragmentListener {

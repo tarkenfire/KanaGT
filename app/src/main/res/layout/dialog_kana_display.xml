@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/kana_dialog_kana_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="X"
+        />
+
+    <TextView
+        android:id="@+id/kana_dialog_roman_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DUMMY REMOVE ME"
+        />
+
+    <TextView
+        android:id="@+id/kana_dialog_correct_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DUMMY REMOVE ME"/>
+
+    <TextView
+        android:id="@+id/kana_dialog_incorrect_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DUMMY REMOVE ME"/>
+
+    <TextView
+        android:id="@+id/kana_dialog_prof_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DUMMY REMOVE ME"/>
+
+
+    <Button
+        android:id="@+id/kana_dialog_close_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ok"
+        />
+
+</LinearLayout>

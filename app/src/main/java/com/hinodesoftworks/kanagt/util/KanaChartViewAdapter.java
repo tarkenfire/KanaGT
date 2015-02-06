@@ -10,24 +10,27 @@ import android.widget.TextView;
 
 import com.hinodesoftworks.kanagt.R;
 
-public class KanaChartViewAdapter extends RecyclerView.Adapter<KanaChartViewAdapter.ViewHolder> {
+public class KanaChartViewAdapter extends RecyclerView.Adapter<KanaChartViewHolder>
+            implements KanaChartViewHolder.OnHolderClickedListener{
 
     private Cursor mCursor;
+    private OnChartItemClickListener mListener;
 
-    public KanaChartViewAdapter(Cursor items){
+    public KanaChartViewAdapter(Cursor items, OnChartItemClickListener listener){
         mCursor = items;
+        mListener = listener;
     }
 
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public KanaChartViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View parent = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.chart_item_kana,
                 viewGroup, false);
-        return new ViewHolder(parent);
+        return new KanaChartViewHolder(parent, this);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+    public void onBindViewHolder(KanaChartViewHolder viewHolder, int i) {
         mCursor.moveToPosition(i);
 
         //TODO make static constants in database manager for better readability
@@ -41,19 +44,14 @@ public class KanaChartViewAdapter extends RecyclerView.Adapter<KanaChartViewAdap
         return mCursor == null ? 0 : mCursor.getCount();
     }
 
-
-
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-        public TextView kanaDisplay;
-        public TextView romaDisplay;
-
-        public ViewHolder(View itemView) {
-            super(itemView);
-
-            kanaDisplay = (TextView) itemView.findViewById(R.id.kana_chart_display);
-            romaDisplay = (TextView) itemView.findViewById(R.id.kana_chart_roma);
-        }
+    //callback from view holder
+    @Override
+    public void onItemClicked(String kana) {
+        mListener.onItemClicked(kana);
     }
 
-
+    //callback interface
+    public interface OnChartItemClickListener{
+        public void onItemClicked(String selectedCharacter);
+    }
 }

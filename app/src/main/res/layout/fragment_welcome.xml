@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/seperator"
+        android:showDividers="end|middle|beginning">
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_dark"
+            android:textColor="#FFF"
+            android:textSize="32sp"
+            android:text="Welcome to KanaGT"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary"
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt est augue, eget tempus leo ullamcorper ac. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec auctor varius porttitor. Ut in diam eleifend lacus tempor semper non ut elit."
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_dark"
+            android:textColor="#FFF"
+            android:textSize="32sp"
+            android:text="Hiragana"
+            android:layout_marginTop="5dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary"
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt est augue, eget tempus leo ullamcorper ac."
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:background="@drawable/nav_button_light_selector"
+            android:text="View Hiragana List"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:background="@drawable/nav_button_light_selector"
+            android:text="View Hiragana Chart"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:background="@drawable/nav_button_light_selector"
+            android:text="Take a Practice Quiz"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary_dark"
+            android:textColor="#FFF"
+            android:textSize="32sp"
+            android:text="Katakana"
+            android:layout_marginTop="5dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/primary"
+            android:textColor="#FFF"
+            android:textSize="16sp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt est augue, eget tempus leo ullamcorper ac."
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:background="@drawable/nav_button_light_selector"
+            android:text="View Katakana List"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:background="@drawable/nav_button_light_selector"
+            android:text="View Katakana Chart"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFF"
+            android:background="@drawable/nav_button_light_selector"
+            android:text="Take a Practice Quiz"/>
+
+
+
+    </LinearLayout>
+
+</ScrollView>

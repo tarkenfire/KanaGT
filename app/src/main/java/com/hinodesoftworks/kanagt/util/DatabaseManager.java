@@ -57,5 +57,32 @@ public class DatabaseManager extends SQLiteAssetHelper {
         return c;
     }
 
+    public Cursor getQuestionSet(String table, int numberOfQuestions){
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+
+        qb.setTables(table);
+        String[] projection = {"character", "roman"};
+        Cursor c = qb.query(db,projection, null, null, null, null, "Random()", "" + numberOfQuestions);
+        c.moveToFirst();
+        db.close();
+
+        return c;
+    }
+
+    public Cursor getWrongAnswerRomanSet(String table, int numberOfQuestions, String answerToExclude){
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
+
+        qb.setTables(table);
+        String[] projection = {"roman"};
+        Cursor c = qb.query(db,projection, "character!='" + answerToExclude + "'", null, null, null,
+                                "Random()", "" + numberOfQuestions);
+        c.moveToFirst();
+        db.close();
+
+        return c;
+    }
+
 
 }

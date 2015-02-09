@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.hinodesoftworks.kanagt.dialogs.KanaChartDisplayDialog;
 import com.hinodesoftworks.kanagt.util.DatabaseManager;
 import com.hinodesoftworks.kanagt.util.NavMenuListAdapter;
 import com.hinodesoftworks.kanagt.util.QuizManager;
@@ -63,7 +64,6 @@ public class MainActivity extends ActionBarActivity implements
 
         //init database
         mDatabaseManager = new DatabaseManager(this);
-        Cursor c = mDatabaseManager.getAllHira();
 
         HomeFragment testFrag = new HomeFragment();
         changeViewFragment(testFrag);
@@ -197,11 +197,23 @@ public class MainActivity extends ActionBarActivity implements
         sender.showKataChart(mDatabaseManager.getAllKata());
     }
 
+    @Override
+    public void onKatakanaChartItemSelected(KatakanaChartFragment sender, String kana){
+        Cursor data = mDatabaseManager.getKanaDetails("katakana", kana);
+        //todo create constants to represent row numbers
+        sender.showDetailDialog(data.getString(0), data.getString(1), data.getInt(2),
+                data.getInt(3), data.getInt(4), data.getString(5));
+
+        data.close();
+    }
+
     //quiz setup fragment
 
     @Override
-    public void onQuizStartButtonPressed() {
+    public void onQuizStartButtonPressed(QuizManager.QuizMode mode) {
         Intent sender = new Intent(this, QuizActivity.class);
+
+        sender.putExtra("mode", mode);
         startActivity(sender);
     }
 }

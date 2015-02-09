@@ -71,7 +71,6 @@ public class HiraganaChartFragment extends Fragment
         mRecyclerView.setAdapter(adapter);
     }
 
-    //TODO: needs arguments
     public void showDetailDialog(String kana, String roman, int correct, int incorrect,
                                     int prof, String diagramLoc ){
         KanaChartDisplayDialog d = KanaChartDisplayDialog.newInstance(kana, roman, correct,

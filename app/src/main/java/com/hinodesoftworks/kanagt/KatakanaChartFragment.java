@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.hinodesoftworks.kanagt.dialogs.KanaChartDisplayDialog;
 import com.hinodesoftworks.kanagt.util.KanaChartViewAdapter;
 
 public class KatakanaChartFragment extends Fragment
@@ -69,14 +70,21 @@ public class KatakanaChartFragment extends Fragment
         mRecyclerView.setAdapter(adapter);
     }
 
+    public void showDetailDialog(String kana, String roman, int correct, int incorrect,
+                                 int prof, String diagramLoc ){
+        KanaChartDisplayDialog d = KanaChartDisplayDialog.newInstance(kana, roman, correct,
+                incorrect, prof, diagramLoc);
+        d.show(getActivity().getFragmentManager(), "detailsFragment");
+    }
+
     @Override
     public void onItemClicked(String selectedCharacter) {
-
+        mListener.onKatakanaChartItemSelected(this, selectedCharacter);
     }
 
     public interface OnKatakanaChartFragmentListener {
-        // TODO: Update argument type and name
         public void onKatakanaChartLoaded(KatakanaChartFragment sender);
+        public void onKatakanaChartItemSelected(KatakanaChartFragment sender, String kana);
     }
 
 }

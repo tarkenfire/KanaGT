@@ -76,11 +76,11 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        mListener.onQuizStartButtonPressed();
+        mListener.onQuizStartButtonPressed(mQuizMode);
     }
 
     public interface OnQuizSetupListener {
-        public void onQuizStartButtonPressed();
+        public void onQuizStartButtonPressed(QuizManager.QuizMode mode);
     }
 
 }

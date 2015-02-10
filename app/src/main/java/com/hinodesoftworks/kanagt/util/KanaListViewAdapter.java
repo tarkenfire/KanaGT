@@ -68,8 +68,6 @@ public class KanaListViewAdapter extends RecyclerView.Adapter<KanaListViewAdapte
 
     //cursor methods
 
-
-
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public TextView kanaDisplay;

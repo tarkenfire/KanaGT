@@ -14,7 +14,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hinodesoftworks.kanagt.dialogs.QuizResultsDialog;
 import com.hinodesoftworks.kanagt.util.DatabaseManager;
+import com.hinodesoftworks.kanagt.util.Question;
 import com.hinodesoftworks.kanagt.util.QuizManager;
 
 import java.util.ArrayList;
@@ -22,7 +24,7 @@ import java.util.Random;
 
 
 public class QuizActivity extends ActionBarActivity implements View.OnClickListener,
-        QuizManager.QuizListener{
+        QuizManager.QuizListener, QuizResultsDialog.OnPostQuizResultsListener{
 
     private Button button1, button2, button3, button4;
     private TextView display;
@@ -63,6 +65,10 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
 
         Intent args = this.getIntent();
         QuizManager.QuizMode mode = (QuizManager.QuizMode)args.getSerializableExtra("mode");
+
+        //todo: get value from passed intent
+        int totalQuestions = 20;
+
         String table = "hiragana";
 
         switch (mode){
@@ -80,11 +86,14 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
                 break;
         }
 
-        //get right answers
-        String[] rDisplay = new String[5];
-        String[] rAnswer = new String[5];
+        //get array of questions
+        ArrayList<Question> questions = new ArrayList<>();
 
-        Cursor rightCursor = mDatabaseManager.getQuestionSet(table, 5);
+        //get right answers
+        String[] rDisplay = new String[totalQuestions];
+        String[] rAnswer = new String[totalQuestions];
+
+        Cursor rightCursor = mDatabaseManager.getQuestionSet(table, totalQuestions);
         rightCursor.moveToFirst();
         rDisplay[0] = rightCursor.getString(0);
         rAnswer[0] = rightCursor.getString(1);
@@ -113,8 +122,14 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
             wrongs.add(wHolder);
         }
 
-        mQuizManager.setupQuiz(rDisplay, rAnswer, wrongs, 5);
+        //add to question list
+        for (int i = 0; i < totalQuestions; i++){
+            questions.add(new Question(rAnswer[i], rDisplay[i], wrongs.get(i)));
+        }
+
+        mQuizManager.setupQuiz(questions, totalQuestions, mode);
         mQuizManager.startQuiz();
+
     }
 
     @Override
@@ -196,10 +211,16 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
 
     @Override
     public void onQuizEnded(int correct, int incorrect) {
+        QuizResultsDialog dialog = new QuizResultsDialog();
+        dialog.setup(mQuizManager.getmQuestions(), mQuizManager.getmQuizMode());
+        dialog.setListener(this);
+        dialog.show(getFragmentManager(), "quizResults");
+    }
 
-        Toast.makeText(this, "Correct: " + correct + " Incorrect: " + incorrect, Toast.LENGTH_LONG).show();
+    @Override
+    public void onQuizResultsClosed() {
+        //todo: update stats
+
         this.finish();
-
-
     }
 }

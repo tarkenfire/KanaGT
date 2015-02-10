@@ -8,9 +8,8 @@ public class QuizManager {
 
 
     private QuizListener mListener;
-    private String[] rights;
-    private String[] displayRights;
-    private ArrayList<String[]> wrongs;
+    private QuizMode mQuizMode;
+    private ArrayList<Question> mQuestions;
     private boolean isQuizSetup = false;
     private int questionCounter = 0;
     private int maxQuestions = 0;
@@ -25,39 +24,61 @@ public class QuizManager {
         this.mListener = listener;
     }
 
-    //quiz methods - called from hosting activity
-    public void setupQuiz(String[] displayRights, String[] rights, ArrayList<String[]> wrongs,
-                          int maxQuestions){
-        this.displayRights = displayRights;
-        this.rights = rights;
-        this.wrongs = wrongs;
+    //quiz methods
+    public void setupQuiz(ArrayList<Question> questions, int maxQuestions, QuizMode mode){
+        this.mQuestions = questions;
         this.maxQuestions = maxQuestions;
+        this.mQuizMode = mode;
 
-        isQuizSetup = true;
+        this.isQuizSetup = true;
     }
 
     public void startQuiz(){
         if (!isQuizSetup) return;
 
-        mListener.onQuizStarted(rights[questionCounter], displayRights[questionCounter], wrongs.get(questionCounter));
+        Question question = mQuestions.get(questionCounter);
+
+        mListener.onQuizStarted(question.getmRightAnswer(), question.getmDisplayAnswer(),
+                            question.getmWrongAnswers());
 
     }
 
     public void checkAnswer(String answer){
-        String check = rights[questionCounter];
+        Question currentQuestion = mQuestions.get(questionCounter);
+        String check = currentQuestion.getmRightAnswer();
+        currentQuestion.setUserAnswer(answer);
 
         //check answer
-        if (check.matches(answer))
+        if (check.matches(answer)){
             correct++;
-        else
-            incorrect++;
-
-        if (++questionCounter != maxQuestions){
-            mListener.onNextQuestion(rights[questionCounter], displayRights[questionCounter], wrongs.get(questionCounter));
+            currentQuestion.setIsCorrect(true);
         }
         else{
-            mListener.onQuizEnded(correct, incorrect);
+            incorrect++;
+            currentQuestion.setIsCorrect(false);
         }
+
+        if (++questionCounter != maxQuestions){
+            currentQuestion = mQuestions.get(questionCounter);
+            mListener.onNextQuestion(currentQuestion.getmRightAnswer(),
+                            currentQuestion.getmDisplayAnswer(), currentQuestion.getmWrongAnswers());
+        }
+        else{
+            quizEnded();
+        }
+    }
+
+    private void quizEnded(){
+        mListener.onQuizEnded(correct, incorrect);
+    }
+
+    //accessors
+    public ArrayList<Question> getmQuestions() {
+        return mQuestions;
+    }
+
+    public QuizMode getmQuizMode() {
+        return mQuizMode;
     }
 
     //interface

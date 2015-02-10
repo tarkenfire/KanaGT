@@ -13,43 +13,80 @@
         />
 
     <TextView
+        android:id="@+id/quiz_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/q_toolbar"
+        android:background="@color/primary_dark"
+        android:textColor="#FFF"
+        android:layout_centerHorizontal="true"
+        android:textSize="26sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        />
+
+    <TextView
         android:id="@+id/quiz_question_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="128sp"
-        android:layout_below="@id/q_toolbar"/>
+        android:layout_below="@id/quiz_status_bar"
+        android:layout_centerHorizontal="true"/>
 
-    <Button
-        android:id="@+id/quiz_button_1"
-        android:layout_width="140sp"
-        android:layout_height="140sp"
-        android:layout_below="@id/quiz_question_display"
-        />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/quiz_question_display">
 
-    <Button
-        android:id="@+id/quiz_button_2"
-        android:layout_width="140sp"
-        android:layout_height="140sp"
-        android:layout_below="@id/quiz_question_display"
-        android:layout_toRightOf="@id/quiz_button_1"
-        android:layout_toEndOf="@id/quiz_button_1"
-        />
+        <Button
+            android:id="@+id/quiz_button_1"
+            android:layout_width="140sp"
+            android:layout_height="140sp"
+            android:textColor="#FFF"
+            android:textSize="46sp"
+            android:layout_margin="5dp"
+            android:background="@drawable/nav_button_selector"
+            />
 
-    <Button
-        android:id="@+id/quiz_button_3"
-        android:layout_width="140sp"
-        android:layout_height="140sp"
-        android:layout_below="@id/quiz_button_1"
+        <Button
+            android:id="@+id/quiz_button_2"
+            android:layout_width="140sp"
+            android:layout_height="140sp"
+            android:textColor="#FFF"
+            android:textSize="46sp"
+            android:layout_margin="5dp"
+            android:layout_toRightOf="@id/quiz_button_1"
+            android:layout_toEndOf="@id/quiz_button_1"
+            android:background="@drawable/nav_button_selector"
+            />
 
-        />
+        <Button
+            android:id="@+id/quiz_button_3"
+            android:layout_width="140sp"
+            android:layout_height="140sp"
+            android:textColor="#FFF"
+            android:textSize="46sp"
+            android:layout_margin="5dp"
+            android:layout_below="@id/quiz_button_1"
+            android:background="@drawable/nav_button_selector"
+            />
 
-    <Button
-        android:id="@+id/quiz_button_4"
-        android:layout_width="140sp"
-        android:layout_height="140sp"
-        android:layout_below="@id/quiz_button_2"
-        android:layout_toRightOf="@id/quiz_button_3"
-        android:layout_toEndOf="@id/quiz_button_3"
-        />
+        <Button
+            android:id="@+id/quiz_button_4"
+            android:layout_width="140sp"
+            android:layout_height="140sp"
+            android:textColor="#FFF"
+            android:textSize="46sp"
+            android:layout_margin="5dp"
+            android:layout_below="@id/quiz_button_2"
+            android:layout_toRightOf="@id/quiz_button_3"
+            android:layout_toEndOf="@id/quiz_button_3"
+            android:background="@drawable/nav_button_selector"
+            />
+
+    </RelativeLayout>
 
 </RelativeLayout>

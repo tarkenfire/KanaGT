@@ -14,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.hinodesoftworks.kanagt.dialogs.KanaChartDisplayDialog;
@@ -90,10 +91,6 @@ public class MainActivity extends ActionBarActivity implements
         return super.onOptionsItemSelected(item);
     }
 
-
-    //navigation methods
-
-
     //utility methods
     private void changeViewFragment(Fragment fragToShow){
         mFragmentManager.beginTransaction()
@@ -101,6 +98,11 @@ public class MainActivity extends ActionBarActivity implements
                 .commit();
     }
 
+    private void changeActionBarTitle(int resId){
+        getSupportActionBar().setTitle(resId);
+    }
+
+    //navigation methods
     //nav drawer
     @Override
     public void onNavItemSelected(NavMenuListAdapter.NavLocation location) {
@@ -155,10 +157,24 @@ public class MainActivity extends ActionBarActivity implements
         mDrawerLayout.closeDrawers();
     }
 
+    //fragment interfaces
     //home fragment
     @Override
-    public void onFragmentInteraction(Uri uri) {
-
+    public void onQuickLinkPressed(View v) {
+        switch (v.getId()){
+            case R.id.welcome_hira_list_button:
+                break;
+            case R.id.welcome_hira_chart_button:
+                break;
+            case R.id.welcome_hira_quiz_button:
+                break;
+            case R.id.welcome_kata_list_button:
+                break;
+            case R.id.welcome_kata_chart_button:
+                break;
+            case R.id.welcome_kata_quiz_button:
+                break;
+        }
     }
 
     //hira list

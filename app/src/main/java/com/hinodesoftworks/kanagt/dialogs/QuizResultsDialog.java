@@ -27,10 +27,13 @@ public class QuizResultsDialog extends DialogFragment implements View.OnClickLis
     private QuizManager.QuizMode mQuizMode;
     private boolean isSetup = false;
     private OnPostQuizResultsListener mListener;
+    private int[] mScores;
 
-    public void setup(ArrayList<Question> questions, QuizManager.QuizMode quizMode){
+    public void setup(ArrayList<Question> questions, QuizManager.QuizMode quizMode,
+                      int[] scores){
         this.mQuestions = questions;
         this.mQuizMode = quizMode;
+        this.mScores = scores;
 
         isSetup = true;
     }
@@ -48,26 +51,42 @@ public class QuizResultsDialog extends DialogFragment implements View.OnClickLis
 
         //UI handles
         Button endButton = (Button)parent.findViewById(R.id.quiz_dialog_end_button);
+        TextView scoreText = (TextView)parent.findViewById(R.id.quiz_dialog_score_display);
         ListView reviewList = (ListView)parent.findViewById(R.id.quiz_dialog_review_list);
         TextView warningText = (TextView)parent.findViewById(R.id.quiz_dialog_warning_display);
 
         endButton.setOnClickListener(this);
 
         //set display text
+        //TODO: hard coded strings
         switch (mQuizMode){
             case MODE_HIRA_P_QUIZ:
-                warningText.setText("TODO: HiraP Warning Text");
+                warningText.setText("This was a HIRAGANA PRACTICE quiz. Your character rankings " +
+                        "and quiz stats will NOT be changed.");
                 break;
             case MODE_HIRA_R_QUIZ:
-                warningText.setText("TODO: HiraR Warning Text");
+                warningText.setText("This was a HIRAGANA RANKING quiz. Your character rankings " +
+                        "and quiz stats WILL be changed.");
                 break;
             case MODE_KATA_P_QUIZ:
-                warningText.setText("TODO: KataP Warning Text");
+                warningText.setText("This was a KATAKANA PRACTICE quiz. Your character rankings " +
+                        "and quiz stats will NOT be changed.");
                 break;
             case MODE_KATA_R_QUIZ:
-                warningText.setText("TODO: KataR Warning Text");
+                warningText.setText("This was a KATAKANA RANKING quiz. Your character rankings " +
+                        "and quiz stats WILL be changed.");
                 break;
         }
+
+        //score
+        int correct = mScores[0], incorrect = mScores[1];
+        int total = mQuestions.size();
+        float percentCorrect = (correct * 100 ) / total , percentIncorrect = (incorrect * 100) / total;
+
+
+        scoreText.setText( "Correct: " + correct + " (" + percentCorrect + "%)" + " " +
+                            "Incorrect: " + incorrect + " (" + percentIncorrect + "%)");
+
 
         QuizResultsListAdapter adapter = new QuizResultsListAdapter(getActivity(), R.layout.row_quiz_answer,
                 mQuestions);

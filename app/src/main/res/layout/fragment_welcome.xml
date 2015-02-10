@@ -12,24 +12,6 @@
         android:divider="@drawable/seperator"
         android:showDividers="end|middle|beginning">
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primary_dark"
-            android:textColor="#FFF"
-            android:textSize="32sp"
-            android:text="Welcome to KanaGT"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/primary"
-            android:textColor="#FFF"
-            android:textSize="16sp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt est augue, eget tempus leo ullamcorper ac. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec auctor varius porttitor. Ut in diam eleifend lacus tempor semper non ut elit."
-            />
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +19,6 @@
             android:textColor="#FFF"
             android:textSize="32sp"
             android:text="Hiragana"
-            android:layout_marginTop="5dp"
             />
 
         <TextView
@@ -50,18 +31,23 @@
             />
 
         <Button
+            android:id="@+id/welcome_hira_list_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
             android:text="View Hiragana List"/>
+
         <Button
+            android:id="@+id/welcome_hira_chart_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
             android:text="View Hiragana Chart"/>
+
         <Button
+            android:id="@+id/welcome_hira_quiz_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFF"
@@ -88,26 +74,26 @@
             />
 
         <Button
+            android:id="@+id/welcome_kata_list_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
             android:text="View Katakana List"/>
+
         <Button
+            android:id="@+id/welcome_kata_chart_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
             android:text="View Katakana Chart"/>
         <Button
+            android:id="@+id/welcome_kata_quiz_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
             android:text="Take a Practice Quiz"/>
-
-
-
     </LinearLayout>
-
 </ScrollView>

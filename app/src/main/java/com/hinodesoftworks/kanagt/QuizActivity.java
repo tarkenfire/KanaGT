@@ -27,7 +27,7 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
         QuizManager.QuizListener, QuizResultsDialog.OnPostQuizResultsListener{
 
     private Button button1, button2, button3, button4;
-    private TextView display;
+    private TextView display, progressDisplay;
 
     private DatabaseManager mDatabaseManager;
     private QuizManager mQuizManager;
@@ -37,6 +37,8 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
+        //TODO: LOWER DENSITY SCREENS NEED AN ALT LAYOUT
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.q_toolbar);
         setSupportActionBar(toolbar);
@@ -55,6 +57,7 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
         button4 = (Button)findViewById(R.id.quiz_button_4);
 
         display = (TextView)findViewById(R.id.quiz_question_display);
+        progressDisplay = (TextView) findViewById(R.id.quiz_status_bar);
 
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
@@ -143,6 +146,9 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
     public void onQuizStarted(String right, String rightDisplay,  String[] wrongs) {
         display.setText(rightDisplay);
 
+        progressDisplay.setText("Question " + mQuizManager.getCurrentQuestionNumber() +
+                                " of " + mQuizManager.getMaxQuestionNumber());
+
         Random r = new Random();
         int place = r.nextInt(4);
 
@@ -178,6 +184,9 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
     public void onNextQuestion(String right, String rightDisplay, String[] wrongs) {
         display.setText(rightDisplay);
 
+        progressDisplay.setText("Question " + mQuizManager.getCurrentQuestionNumber() +
+                " of " + mQuizManager.getMaxQuestionNumber());
+
         Random r = new Random();
         int place = r.nextInt(4);
 
@@ -212,7 +221,8 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public void onQuizEnded(int correct, int incorrect) {
         QuizResultsDialog dialog = new QuizResultsDialog();
-        dialog.setup(mQuizManager.getmQuestions(), mQuizManager.getmQuizMode());
+        dialog.setup(mQuizManager.getmQuestions(), mQuizManager.getmQuizMode(),
+                        mQuizManager.getScore());
         dialog.setListener(this);
         dialog.show(getFragmentManager(), "quizResults");
     }

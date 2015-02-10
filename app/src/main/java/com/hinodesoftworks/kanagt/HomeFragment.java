@@ -9,12 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Activities that contain this fragment must implement the
- * {@link com.hinodesoftworks.kanagt.HomeFragment.OnHomeFragmentInteractionListener} interface
- * to handle interaction events.
- */
 public class HomeFragment extends Fragment {
 
     private OnHomeFragmentInteractionListener mListener;
@@ -47,8 +41,7 @@ public class HomeFragment extends Fragment {
     }
 
     public interface OnHomeFragmentInteractionListener {
-        // TODO: Update argument type and name
-        public void onFragmentInteraction(Uri uri);
+        public void onQuickLinkPressed(View view);
     }
 
 }

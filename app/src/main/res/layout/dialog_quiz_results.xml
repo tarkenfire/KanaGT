@@ -2,27 +2,55 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+>
 
     <TextView
         android:text="Results"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/primary_dark"
+        android:textColor="#FFF"
+        android:textSize="24sp"
+        android:layout_marginBottom="4dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        />
+
+    <TextView
+        android:id="@+id/quiz_dialog_score_display"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="4dp"
+        />
 
     <TextView
         android:id="@+id/quiz_dialog_warning_display"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingBottom="5dp"
+        />
 
     <Button
         android:id="@+id/quiz_dialog_end_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/nav_button_selector"
+        android:textColor="#FFF"
+        android:layout_marginBottom="5dp"
         android:text="End Quiz"/>
 
     <ListView
         android:id="@+id/quiz_dialog_review_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>

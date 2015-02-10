@@ -3,6 +3,7 @@ package com.hinodesoftworks.kanagt.util;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -44,6 +45,40 @@ public class KanaListViewAdapter extends RecyclerView.Adapter<KanaListViewAdapte
         viewHolder.kanaDisplay.setText(mCursor.getString(0));
         viewHolder.romaDisplay.setText(mCursor.getString(1));
 
+        int correct = mCursor.getInt(2);
+        int incorrect = mCursor.getInt(3);
+        int total = correct + incorrect;
+        int cPercent = 0;
+
+        if (total != 0){
+            cPercent = (correct * 100) / total;
+        }
+
+        viewHolder.dataView1.setText("Correct " + correct + " times (" + cPercent + "%)" );
+
+        int prof = mCursor.getInt(4);
+        switch (prof){
+            case 0: //error state
+                break;
+            case 1: //unknown
+                viewHolder.dataView2.setText("Unknown");
+                viewHolder.dataView2.setTextColor(Color.RED);
+                break;
+            case 2: //known
+                viewHolder.dataView2.setText("Known");
+                viewHolder.dataView2.setTextColor(Color.parseColor("#B2B22B"));
+                break;
+            case 3: //well known
+                viewHolder.dataView2.setText("Well Known");
+                viewHolder.dataView2.setTextColor(Color.parseColor("#2983A8"));
+                break;
+            case 4: //mastered
+                viewHolder.dataView2.setText("Mastered");
+                viewHolder.dataView2.setTextColor(Color.parseColor("#2D9C2E"));
+                break;
+        }
+
+
         String imgName = mCursor.getString(5);
 
         if (imgName.matches("none")){
@@ -73,6 +108,8 @@ public class KanaListViewAdapter extends RecyclerView.Adapter<KanaListViewAdapte
         public TextView kanaDisplay;
         public TextView romaDisplay;
         public ImageView diagramDisplay;
+        public TextView dataView1;
+        public TextView dataView2;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -80,6 +117,8 @@ public class KanaListViewAdapter extends RecyclerView.Adapter<KanaListViewAdapte
             kanaDisplay = (TextView) itemView.findViewById(R.id.kana_card_display);
             romaDisplay = (TextView) itemView.findViewById(R.id.kana_card_roma);
             diagramDisplay = (ImageView) itemView.findViewById(R.id.kana_card_diagram);
+            dataView1 = (TextView) itemView.findViewById(R.id.kana_card_info1_display);
+            dataView2 = (TextView) itemView.findViewById(R.id.kana_card_info2_display);
         }
     }
 

@@ -66,7 +66,7 @@
                     android:id="@+id/main_kana_hiragana_known_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#FFFF00"
+                    android:textColor="#B2B22B"
                     android:textSize="24sp"
                     android:text="0 Known"/>
 
@@ -74,7 +74,7 @@
                     android:id="@+id/main_kana_hiragana_well_known_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#FFAA00"
+                    android:textColor="#2983A8"
                     android:textSize="24sp"
                     android:text="0 Well Known"/>
 
@@ -82,7 +82,7 @@
                     android:id="@+id/main_kana_hiragana_mastered_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#00FF00"
+                    android:textColor="#2D9C2E"
                     android:textSize="24sp"
                     android:text="0 Mastered"/>
 
@@ -124,7 +124,7 @@
                     android:id="@+id/main_kana_katakana_known_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#FFFF00"
+                    android:textColor="#B2B22B"
                     android:textSize="24sp"
                     android:text="0 Known"/>
 
@@ -132,7 +132,7 @@
                     android:id="@+id/main_kana_katakana_well_known_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#FFAA00"
+                    android:textColor="#2983A8"
                     android:textSize="24sp"
                     android:text="0 Well Known"/>
 
@@ -140,7 +140,7 @@
                     android:id="@+id/main_kana_katakana_mastered_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textColor="#00FF00"
+                    android:textColor="#2D9C2E"
                     android:textSize="24sp"
                     android:text="0 Mastered"/>
             </LinearLayout>

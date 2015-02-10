@@ -6,56 +6,75 @@
     card_view:cardCornerRadius="4dp"
     card_view:cardUseCompatPadding="true">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/kana_card_display"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/kana_card_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="120sp"
+                android:text="あ"/>
+
+            <TextView
+                android:id="@+id/kana_card_roma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/kana_card_display"
+                android:layout_toEndOf="@id/kana_card_display"
+                android:textSize="36sp"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="a"
+                />
+
+            <TextView
+                android:id="@+id/kana_card_info1_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/kana_card_display"
+                android:layout_toEndOf="@id/kana_card_display"
+                android:layout_below="@id/kana_card_roma"
+                android:textSize="26sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="INFO 1"/>
+
+            <TextView
+                android:id="@+id/kana_card_info2_display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/kana_card_display"
+                android:layout_toEndOf="@id/kana_card_display"
+                android:layout_below="@id/kana_card_info1_display"
+                android:textSize="26sp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="INFO 2"/>
+
+
+        </RelativeLayout>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="46sp"
-            android:text="あ"/>
+            >
 
-        <TextView
-            android:id="@+id/kana_card_roma"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/kana_card_display"
-            android:layout_toEndOf="@id/kana_card_display"
-            android:text="a"
-            />
-
-        <TextView
-            android:id="@+id/kana_card_info1_display"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/kana_card_display"
-            android:layout_toEndOf="@id/kana_card_display"
-            android:layout_below="@id/kana_card_roma"
-            android:text="INFO 1"/>
-
-        <TextView
-            android:id="@+id/kana_card_info2_display"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/kana_card_display"
-            android:layout_toEndOf="@id/kana_card_display"
-            android:layout_below="@id/kana_card_info1_display"
-            android:text="INFO 2"/>
-
-<HorizontalScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_below="@id/kana_card_info2_display">
             <ImageView
                 android:id="@+id/kana_card_diagram"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:scaleType="fitStart"
-
                 android:adjustViewBounds="true"/>
-</HorizontalScrollView>
-    </RelativeLayout>
+        </HorizontalScrollView>
+
+</LinearLayout>
+
 
 </android.support.v7.widget.CardView>

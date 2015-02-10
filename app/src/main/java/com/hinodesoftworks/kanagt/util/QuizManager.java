@@ -81,6 +81,21 @@ public class QuizManager {
         return mQuizMode;
     }
 
+    public int[] getScore(){
+        int[] holder = new int[2];
+        holder[0] = correct;
+        holder[1] = incorrect;
+        return holder;
+    }
+
+    public int getCurrentQuestionNumber(){
+        return questionCounter + 1;
+    }
+
+    public int getMaxQuestionNumber(){
+        return maxQuestions;
+    }
+
     //interface
     public interface QuizListener{
         public void onQuizStarted(String right, String rightDisplay, String[] wrongs);

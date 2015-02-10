@@ -47,12 +47,13 @@ public class QuizResultsListAdapter extends ArrayAdapter<Question> {
         TextView header = (TextView)holder.findViewById(R.id.row_quiz_header);
         TextView result = (TextView)holder.findViewById(R.id.row_quiz_result);
 
-        header.setText("Question " + (position + 1));
-        result.setText("Your answer: " + question.getUserAnswer() + " Correct answer: " +
+        header.setText("Question " + (position + 1) + " - " + question.getmDisplayAnswer());
+        result.setText("Your answer: " + question.getUserAnswer() + "  " + " Correct answer: " +
                                 question.getmRightAnswer());
 
+
         if (question.isCorrect()){
-            result.setTextColor(Color.GREEN);
+            result.setTextColor(Color.parseColor("#40BA46"));
         }
         else{
             result.setTextColor(Color.RED);

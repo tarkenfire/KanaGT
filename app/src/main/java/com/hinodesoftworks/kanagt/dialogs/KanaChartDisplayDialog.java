@@ -65,8 +65,8 @@ public class KanaChartDisplayDialog extends DialogFragment implements View.OnCli
 
         //prevent divide by zero exceptions
         if (total != 0){
-            pCorrect = (correct / total) * 100;
-            pIncorrect = (incorrect / total) * 100;
+            pCorrect = (correct  * 100) /total;
+            pIncorrect = (incorrect * 100) / total;
         }
 
         sb.append("Times Correct: ");
@@ -98,15 +98,15 @@ public class KanaChartDisplayDialog extends DialogFragment implements View.OnCli
                 break;
             case 2: //known
                 profDisplay.setText("Known");
-                profDisplay.setTextColor(Color.YELLOW);
+                profDisplay.setTextColor(Color.parseColor("#B2B22B"));
                 break;
             case 3: //well known
                 profDisplay.setText("Well Known");
-                profDisplay.setTextColor(Color.BLUE);
+                profDisplay.setTextColor(Color.parseColor("#2983A8"));
                 break;
             case 4: //mastered
                 profDisplay.setText("Mastered");
-                profDisplay.setTextColor(Color.GREEN);
+                profDisplay.setTextColor(Color.parseColor("#2D9C2E"));
                 break;
         }
 

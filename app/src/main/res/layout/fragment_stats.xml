@@ -26,7 +26,7 @@
                 android:id="@+id/main_kana_stat_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Kana Statistics"
+                android:text="@string/title_kana_stats"
                 android:textSize="36sp"/>
 
             <LinearLayout
@@ -36,15 +36,14 @@
                 android:orientation="vertical"
                 android:layout_marginEnd="10dp"
                 android:layout_marginRight="10dp"
-                android:layout_below="@id/main_kana_stat_title"
-                >
+                android:layout_below="@id/main_kana_stat_title">
 
                 <TextView
                     android:id="@+id/main_kana_hiragana_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="30sp"
-                    android:text="Hiragana"
+                    android:text="@string/title_hiragana"
                     />
 
                 <TextView
@@ -52,7 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="24sp"
-                    android:text="96 Total"/>
+                    android:text="@string/stat_total"/>
 
                 <TextView
                     android:id="@+id/main_kana_hiragana_unknown_label"
@@ -60,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#FF0000"
                     android:textSize="24sp"
-                    android:text="96 Unknown"/>
+                    android:text="@string/stat_unknown"/>
 
                 <TextView
                     android:id="@+id/main_kana_hiragana_known_label"
@@ -68,7 +67,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#B2B22B"
                     android:textSize="24sp"
-                    android:text="0 Known"/>
+                    android:text="@string/stat_known"/>
 
                 <TextView
                     android:id="@+id/main_kana_hiragana_well_known_label"
@@ -76,7 +75,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#2983A8"
                     android:textSize="24sp"
-                    android:text="0 Well Known"/>
+                    android:text="@string/stat_well_known"/>
 
                 <TextView
                     android:id="@+id/main_kana_hiragana_mastered_label"
@@ -84,7 +83,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#2D9C2E"
                     android:textSize="24sp"
-                    android:text="0 Mastered"/>
+                    android:text="@string/stat_mastered"/>
 
             </LinearLayout>
 
@@ -95,22 +94,21 @@
                 android:orientation="vertical"
                 android:layout_below="@id/main_kana_stat_title"
                 android:layout_toRightOf="@id/main_kana_hiragana_container"
-                android:layout_toEndOf="@id/main_kana_hiragana_container"
-                >
+                android:layout_toEndOf="@id/main_kana_hiragana_container">
 
                 <TextView
                     android:id="@+id/main_kana_katakana_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="30sp"
-                    android:text="Katakana"/>
+                    android:text="@string/title_katakana"/>
 
                 <TextView
                     android:id="@+id/main_kana_katakana_total_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="24sp"
-                    android:text="96 Total"/>
+                    android:text="@string/stat_total"/>
 
                 <TextView
                     android:id="@+id/main_kana_katakana_unknown_label"
@@ -118,7 +116,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#FF0000"
                     android:textSize="24sp"
-                    android:text="96 Unknown"/>
+                    android:text="@string/stat_unknown"/>
 
                 <TextView
                     android:id="@+id/main_kana_katakana_known_label"
@@ -126,7 +124,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#B2B22B"
                     android:textSize="24sp"
-                    android:text="0 Known"/>
+                    android:text="@string/stat_known"/>
 
                 <TextView
                     android:id="@+id/main_kana_katakana_well_known_label"
@@ -134,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#2983A8"
                     android:textSize="24sp"
-                    android:text="0 Well Known"/>
+                    android:text="@string/stat_well_known"/>
 
                 <TextView
                     android:id="@+id/main_kana_katakana_mastered_label"
@@ -142,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#2D9C2E"
                     android:textSize="24sp"
-                    android:text="0 Mastered"/>
+                    android:text="@string/stat_mastered"/>
             </LinearLayout>
         </RelativeLayout>
 
@@ -155,7 +153,7 @@
                 android:id="@+id/main_quiz_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quiz Statistics"
+                android:text="@string/title_quiz_stat"
                 android:textSize="36sp"/>
 
             <LinearLayout
@@ -170,29 +168,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:text="Total Ranked Quizzes: 0"/>
+                    android:text="@string/placeholder_generic"/>
 
                 <TextView
                     android:id="@+id/main_quiz_high_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:text="Highest Ranked Quiz Score: 0%"/>
+                    android:text="@string/placeholder_generic"/>
 
                 <TextView
                     android:id="@+id/main_quiz_low_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:text="Lowest Ranked Quiz Score: 0%"/>
+                    android:text="@string/placeholder_generic"/>
 
                 <TextView
                     android:id="@+id/main_quiz_average_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
-                    android:text="Average Ranked Quiz Score: 0%"/>
-
+                    android:text="@string/placeholder_generic"/>
             </LinearLayout>
         </RelativeLayout>
 

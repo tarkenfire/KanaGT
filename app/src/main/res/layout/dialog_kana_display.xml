@@ -7,41 +7,32 @@
     <TextView
         android:id="@+id/kana_dialog_kana_display"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="X"
-        />
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/kana_dialog_roman_display"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DUMMY REMOVE ME"
-        />
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/kana_dialog_correct_display"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DUMMY REMOVE ME"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/kana_dialog_incorrect_display"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DUMMY REMOVE ME"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/kana_dialog_prof_display"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DUMMY REMOVE ME"/>
-
+        android:layout_height="wrap_content"/>
 
     <Button
         android:id="@+id/kana_dialog_close_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ok"
-        />
+        android:text="@string/button_ok"/>
 
 </LinearLayout>

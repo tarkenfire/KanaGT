@@ -10,5 +10,5 @@
         android:background="@drawable/nav_button_selector"
         android:layout_marginBottom="1dp"
         android:textColor="#FFF"
-        android:text="Home"/>
+        android:text="@string/button_home"/>
 </LinearLayout>

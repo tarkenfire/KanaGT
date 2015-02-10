@@ -19,8 +19,7 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        />
+        android:paddingRight="5dp"/>
 
     <TextView
         android:id="@+id/row_quiz_result"

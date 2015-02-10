@@ -18,8 +18,7 @@
             android:background="@color/primary_dark"
             android:textColor="#FFF"
             android:textSize="32sp"
-            android:text="Hiragana"
-            />
+            android:text="@string/title_hiragana"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -27,8 +26,7 @@
             android:background="@color/primary"
             android:textColor="#FFF"
             android:textSize="16sp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt est augue, eget tempus leo ullamcorper ac."
-            />
+            android:text="@string/lore_hiragana"/>
 
         <Button
             android:id="@+id/welcome_hira_list_button"
@@ -36,7 +34,7 @@
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
-            android:text="View Hiragana List"/>
+            android:text="@string/button_welcome_hira_list"/>
 
         <Button
             android:id="@+id/welcome_hira_chart_button"
@@ -44,7 +42,7 @@
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
-            android:text="View Hiragana Chart"/>
+            android:text="@string/button_welcome_hira_chart"/>
 
         <Button
             android:id="@+id/welcome_hira_quiz_button"
@@ -52,7 +50,7 @@
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
-            android:text="Take a Practice Quiz"/>
+            android:text="@string/button_welcome_hira_quiz"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -60,9 +58,8 @@
             android:background="@color/primary_dark"
             android:textColor="#FFF"
             android:textSize="32sp"
-            android:text="Katakana"
-            android:layout_marginTop="5dp"
-            />
+            android:text="@string/title_katakana"
+            android:layout_marginTop="5dp"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -70,8 +67,7 @@
             android:background="@color/primary"
             android:textColor="#FFF"
             android:textSize="16sp"
-            android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt est augue, eget tempus leo ullamcorper ac."
-            />
+            android:text="@string/lore_katakana"/>
 
         <Button
             android:id="@+id/welcome_kata_list_button"
@@ -79,7 +75,7 @@
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
-            android:text="View Katakana List"/>
+            android:text="@string/button_welcome_kata_list"/>
 
         <Button
             android:id="@+id/welcome_kata_chart_button"
@@ -87,13 +83,13 @@
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
-            android:text="View Katakana Chart"/>
+            android:text="@string/button_welcome_kata_chart"/>
         <Button
             android:id="@+id/welcome_kata_quiz_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#FFF"
             android:background="@drawable/nav_button_light_selector"
-            android:text="Take a Practice Quiz"/>
+            android:text="@string/button_welcome_kata_quiz"/>
     </LinearLayout>
 </ScrollView>

@@ -8,9 +8,7 @@
         android:id="@+id/q_toolbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:background="?attr/colorPrimary"
-
-        />
+        android:background="?attr/colorPrimary"/>
 
     <TextView
         android:id="@+id/quiz_status_bar"
@@ -24,8 +22,7 @@
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        />
+        android:paddingRight="10dp"/>
 
     <TextView
         android:id="@+id/quiz_question_display"
@@ -48,8 +45,7 @@
             android:textColor="#FFF"
             android:textSize="46sp"
             android:layout_margin="5dp"
-            android:background="@drawable/nav_button_selector"
-            />
+            android:background="@drawable/nav_button_selector"/>
 
         <Button
             android:id="@+id/quiz_button_2"
@@ -60,8 +56,7 @@
             android:layout_margin="5dp"
             android:layout_toRightOf="@id/quiz_button_1"
             android:layout_toEndOf="@id/quiz_button_1"
-            android:background="@drawable/nav_button_selector"
-            />
+            android:background="@drawable/nav_button_selector"/>
 
         <Button
             android:id="@+id/quiz_button_3"
@@ -71,8 +66,7 @@
             android:textSize="46sp"
             android:layout_margin="5dp"
             android:layout_below="@id/quiz_button_1"
-            android:background="@drawable/nav_button_selector"
-            />
+            android:background="@drawable/nav_button_selector"/>
 
         <Button
             android:id="@+id/quiz_button_4"
@@ -84,9 +78,6 @@
             android:layout_below="@id/quiz_button_2"
             android:layout_toRightOf="@id/quiz_button_3"
             android:layout_toEndOf="@id/quiz_button_3"
-            android:background="@drawable/nav_button_selector"
-            />
-
+            android:background="@drawable/nav_button_selector"/>
     </RelativeLayout>
-
 </RelativeLayout>

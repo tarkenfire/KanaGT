@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/nav_button_selector"
         android:textColor="#FFF"
-        android:text="Stats"
+        android:text="@string/button_stats"
         android:layout_marginBottom="2dp"/>
 
     <Button
@@ -17,5 +17,5 @@
         android:layout_height="wrap_content"
         android:textColor="#FFF"
         android:background="@drawable/nav_button_selector"
-        android:text="Settings"/>
+        android:text="@string/button_settings"/>
 </LinearLayout>

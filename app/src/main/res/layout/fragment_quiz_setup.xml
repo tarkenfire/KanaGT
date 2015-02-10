@@ -9,13 +9,11 @@
     android:layout_marginLeft="@dimen/activity_horizontal_margin"
     android:layout_marginRight="@dimen/activity_horizontal_margin">
 
-
     <TextView
         android:id="@+id/quiz_setup_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:text="@string/hello_blank_fragment" />
+        android:textSize="32sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -28,7 +26,7 @@
         android:id="@+id/quiz_setup_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Start Quiz"
+        android:text="@string/button_start_quiz"
         android:textColor="#FFF"
         android:background="@drawable/nav_button_selector"/>
 

@@ -1,24 +1,19 @@
 package com.hinodesoftworks.kanagt.util;
 
-import android.content.res.Resources;
+
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.DisplayMetrics;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hinodesoftworks.kanagt.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
-import com.nostra13.universalimageloader.core.listener.SimpleImageLoadingListener;
 
 public class KanaListViewAdapter extends RecyclerView.Adapter<KanaListViewAdapter.ViewHolder> {
 

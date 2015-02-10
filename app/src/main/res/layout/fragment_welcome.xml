@@ -18,14 +18,20 @@
             android:background="@color/primary_dark"
             android:textColor="#FFF"
             android:textSize="32sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="@string/title_hiragana"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primary"
-            android:textColor="#FFF"
             android:textSize="16sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="20dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="@string/lore_hiragana"/>
 
         <Button
@@ -58,15 +64,21 @@
             android:background="@color/primary_dark"
             android:textColor="#FFF"
             android:textSize="32sp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
             android:text="@string/title_katakana"
             android:layout_marginTop="5dp"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/primary"
-            android:textColor="#FFF"
             android:textSize="16sp"
+            android:paddingTop="15dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="20dp"
             android:text="@string/lore_katakana"/>
 
         <Button

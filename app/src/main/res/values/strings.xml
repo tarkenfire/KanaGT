@@ -29,7 +29,17 @@
     <string name="stat_well_known">0 Well Known</string>
     <string name="stat_mastered">0 Mastered</string>
 
+    <string name="title_activity_quiz">Kana Quiz</string>
+    <string name="title_fragment_quiz_setup">Quiz Setup</string>
+    <string name="title_fragment_hira_list">Hiragana List</string>
+    <string name="title_fragment_hira_chart">Hiragana Chart</string>
+    <string name="title_fragment_kata_list">Katakana List</string>
+    <string name="title_fragment_kata_chart">Katakana Chart</string>
+    <string name="title_fragment_stats">User Statistics</string>
+    <string name="title_settings">Settings</string>
+
     <string name="title_results">Results</string>
+    <string name="title_char_details">Kana Details</string>
     <string name="title_kana_stats">Kana Statistics</string>
     <string name="title_hiragana">Hiragana</string>
     <string name="title_katakana">Katakana</string>
@@ -37,9 +47,16 @@
 
 
 
-
     <string name="action_settings">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_quiz">QuizActivity</string>
+
+
+    
+    <string-array name="quiz_spinner_choices">
+        <item>5 Question Quiz</item>
+        <item>10 Question Quiz</item>
+        <item>15 Question Quiz</item>
+        <item>20 Question Quiz</item>
+    </string-array>
 
 </resources>

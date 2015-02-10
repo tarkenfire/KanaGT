@@ -1,13 +1,14 @@
 package com.hinodesoftworks.kanagt;
 
 import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.hinodesoftworks.kanagt.util.QuizManager;
@@ -49,6 +50,15 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
                 titleView.setText("Katakana Ranking Quiz");
                 break;
         }
+
+        //setup spinner
+        Spinner spinner = (Spinner)holder.findViewById(R.id.quiz_setup_num_of_question_spinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+                        R.array.quiz_spinner_choices, android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+
+        //set ui and text for checkboxes
 
         //set button handler
         Button subButton = (Button)holder.findViewById(R.id.quiz_setup_button);

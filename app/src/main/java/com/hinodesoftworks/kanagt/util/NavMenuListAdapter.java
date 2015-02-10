@@ -8,10 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import com.hinodesoftworks.kanagt.R;
-import com.hinodesoftworks.kanagt.util.NavMenuItem;
 
 public class NavMenuListAdapter extends ArrayAdapter<NavMenuItem> {
     //enums for items

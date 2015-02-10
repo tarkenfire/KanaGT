@@ -4,20 +4,16 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
-import android.net.Uri;
+import android.graphics.Color;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import com.hinodesoftworks.kanagt.dialogs.KanaChartDisplayDialog;
 import com.hinodesoftworks.kanagt.util.DatabaseManager;
 import com.hinodesoftworks.kanagt.util.NavMenuListAdapter;
 import com.hinodesoftworks.kanagt.util.QuizManager;
@@ -47,6 +43,7 @@ public class MainActivity extends ActionBarActivity implements
         mFragmentManager = getFragmentManager();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -56,6 +53,7 @@ public class MainActivity extends ActionBarActivity implements
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
 
         //init 3rd party image loader library for easier asset management
         ImageLoaderConfiguration imageLoaderConfiguration = new ImageLoaderConfiguration.Builder(this)
@@ -106,52 +104,62 @@ public class MainActivity extends ActionBarActivity implements
     //nav drawer
     @Override
     public void onNavItemSelected(NavMenuListAdapter.NavLocation location) {
-        Log.i("Location String", location.toString());
         switch (location){
             case LOC_HOME:
                 changeViewFragment(new HomeFragment());
+                changeActionBarTitle(R.string.app_name);
                 break;
             case LOC_HIRA_LIST:
                 changeViewFragment(new HiraganaListFragment());
+                changeActionBarTitle(R.string.title_fragment_hira_list);
                 break;
             case LOC_HIRA_CHART:
                 HiraganaChartFragment hchart = new HiraganaChartFragment();
                 hchart.setContext(this);
                 changeViewFragment(hchart);
+                changeActionBarTitle(R.string.title_fragment_hira_chart);
                 break;
             case LOC_HIRA_P_QUIZ:
                 QuizSetupFragment hpSetup = new QuizSetupFragment();
                 hpSetup.setQuizMode(QuizManager.QuizMode.MODE_HIRA_P_QUIZ);
                 changeViewFragment(hpSetup);
+                changeActionBarTitle(R.string.title_fragment_quiz_setup);
                 break;
             case LOC_HIRA_R_QUIZ:
                 QuizSetupFragment hrSetup = new QuizSetupFragment();
                 hrSetup.setQuizMode(QuizManager.QuizMode.MODE_HIRA_R_QUIZ);
                 changeViewFragment(hrSetup);
+                changeActionBarTitle(R.string.title_fragment_quiz_setup);
                 break;
             case LOC_KATA_LIST:
                 changeViewFragment(new KatakanaListFragment());
+                changeActionBarTitle(R.string.title_fragment_kata_list);
                 break;
             case LOC_KATA_CHART:
                 KatakanaChartFragment kchart = new KatakanaChartFragment();
                 kchart.setContext(this);
                 changeViewFragment(kchart);
+                changeActionBarTitle(R.string.title_fragment_kata_chart);
                 break;
             case LOC_KATA_P_QUIZ:
                 QuizSetupFragment kpSetup = new QuizSetupFragment();
                 kpSetup.setQuizMode(QuizManager.QuizMode.MODE_KATA_P_QUIZ);
                 changeViewFragment(kpSetup);
+                changeActionBarTitle(R.string.title_fragment_quiz_setup);
                 break;
             case LOC_KATA_R_QUIZ:
                 QuizSetupFragment krSetup = new QuizSetupFragment();
                 krSetup.setQuizMode(QuizManager.QuizMode.MODE_KATA_R_QUIZ);
                 changeViewFragment(krSetup);
+                changeActionBarTitle(R.string.title_fragment_quiz_setup);
                 break;
             case LOC_STATS:
                 changeViewFragment(new StatsFragment());
+                changeActionBarTitle(R.string.title_fragment_stats);
                 break;
             case LOC_SETTINGS:
                 changeViewFragment(new PrefsFragment());
+                changeActionBarTitle(R.string.title_settings);
                 break;
         }
         mDrawerLayout.closeDrawers();
@@ -163,16 +171,22 @@ public class MainActivity extends ActionBarActivity implements
     public void onQuickLinkPressed(View v) {
         switch (v.getId()){
             case R.id.welcome_hira_list_button:
+                onNavItemSelected(NavMenuListAdapter.NavLocation.LOC_HIRA_LIST);
                 break;
             case R.id.welcome_hira_chart_button:
+                onNavItemSelected(NavMenuListAdapter.NavLocation.LOC_HIRA_CHART);
                 break;
             case R.id.welcome_hira_quiz_button:
+                onNavItemSelected(NavMenuListAdapter.NavLocation.LOC_HIRA_P_QUIZ);
                 break;
             case R.id.welcome_kata_list_button:
+                onNavItemSelected(NavMenuListAdapter.NavLocation.LOC_KATA_LIST);
                 break;
             case R.id.welcome_kata_chart_button:
+                onNavItemSelected(NavMenuListAdapter.NavLocation.LOC_KATA_CHART);
                 break;
             case R.id.welcome_kata_quiz_button:
+                onNavItemSelected(NavMenuListAdapter.NavLocation.LOC_KATA_P_QUIZ);
                 break;
         }
     }

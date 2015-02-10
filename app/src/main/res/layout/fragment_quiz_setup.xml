@@ -13,19 +13,68 @@
         android:id="@+id/quiz_setup_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="32sp" />
+        android:textSize="32sp"
+        android:paddingBottom="10dp"/>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Settings for the quiz go here"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="100dp"/>
+        android:text="Select Quiz Length"/>
+
+    <Spinner
+        android:id="@+id/quiz_setup_num_of_question_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Character Sets for Quiz"/>
+
+    <CheckBox
+        android:id="@+id/quiz_setup_all_set_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="All Sets (あ-ぴょ)"/>
+
+    <CheckBox
+        android:id="@+id/quiz_setup_basic_set_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Basic Set (あ-ろ)"/>
+
+    <CheckBox
+        android:id="@+id/quiz_setup_extended_set_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Extended Set (や, ゆ, よ, わ, を, ん)"/>
+
+    <CheckBox
+        android:id="@+id/quiz_setup_yoon_set_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Yoon Set (きゃ-りょ)"/>
+
+    <CheckBox
+        android:id="@+id/quiz_setup_dakuten_set_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="(Han)Dakuten Set (が-ぽ)"/>
+
+    <CheckBox
+        android:id="@+id/quiz_setup_dakuten_yoon_set_checkbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="(Han)Dakuten Yoon Set (ぎゃ-ぴょ)"
+        />
+
 
     <Button
         android:id="@+id/quiz_setup_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/button_start_quiz"
         android:textColor="#FFF"
         android:background="@drawable/nav_button_selector"/>

@@ -1,5 +1,6 @@
 package com.hinodesoftworks.kanagt.util;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -16,9 +17,8 @@ public class DatabaseManager extends SQLiteAssetHelper {
         super (context, DB_NAME, null, DB_VERSION);
     }
 
-    //crud
 
-    //"query all" methods
+    //"query" methods
     public Cursor getAllHira(){
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
@@ -84,5 +84,45 @@ public class DatabaseManager extends SQLiteAssetHelper {
         return c;
     }
 
+    //update methods
+    public void updateCharacterProf(String table, String charToUpdate, boolean isIncreased){
+        //get character from table
+        SQLiteDatabase db = getReadableDatabase();
+        SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
+        qb.setTables(table);
+        String[] projection = {"prof_level"};
+        Cursor c = qb.query(db, projection, "character=='" + charToUpdate + "'", null, null, null,
+                                null, null);
+
+        c.moveToFirst();
+
+        //check to see if the prof level is at max/min
+        int profLevel = c.getInt(0);
+        if (profLevel == 4 && isIncreased){
+            c.close();
+            return;
+        }
+        else if (profLevel == 1 && !isIncreased){
+            c.close();
+            return;
+        }
+
+        //mod prof levels
+        if (isIncreased){
+            profLevel++;
+        }
+        else{
+            profLevel--;
+        }
+        c.close();
+
+        ContentValues values = new ContentValues();
+        values.put("prof_level", profLevel);
+
+        //update db
+        db.update(table, values, "character=='" + charToUpdate + "'", null);
+
+        db.close();
+    }
 }

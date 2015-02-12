@@ -19,6 +19,7 @@ import com.hinodesoftworks.kanagt.dialogs.QuizResultsDialog;
 import com.hinodesoftworks.kanagt.util.DatabaseManager;
 import com.hinodesoftworks.kanagt.util.Question;
 import com.hinodesoftworks.kanagt.util.QuizManager;
+import com.hinodesoftworks.kanagt.util.QuizManager.QuizMode;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -232,6 +233,29 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
     @Override
     public void onQuizResultsClosed() {
         //todo: update stats
+
+        QuizManager.QuizMode mode = mQuizManager.getmQuizMode();
+
+        //only update stats when it is a ranking quiz.
+        if (mode == QuizMode.MODE_HIRA_R_QUIZ  || mode == QuizMode.MODE_KATA_R_QUIZ){
+            ArrayList<Question> answeredQuestions = mQuizManager.getmQuestions();
+            String table = mode == QuizMode.MODE_HIRA_R_QUIZ ? "hiragana" : "katakana";
+
+            for (Question q : answeredQuestions){
+
+                try{
+                    mDatabaseManager.updateCharacterProf(table, q.getmDisplayAnswer(), q.isCorrect());
+
+                }
+                catch (Exception e){
+                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            }
+
+        }
+
+
+
 
         this.finish();
     }

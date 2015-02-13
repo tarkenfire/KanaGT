@@ -192,7 +192,6 @@
                     android:text="@string/placeholder_generic"/>
             </LinearLayout>
         </RelativeLayout>
-
     </LinearLayout>
 
 </ScrollView>

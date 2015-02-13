@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.UserManager;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +20,9 @@ import com.hinodesoftworks.kanagt.util.Question;
 import com.hinodesoftworks.kanagt.util.QuizManager;
 import com.hinodesoftworks.kanagt.util.QuizResultsListAdapter;
 
+import java.sql.Time;
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class QuizResultsDialog extends DialogFragment implements View.OnClickListener {
 
@@ -28,12 +31,14 @@ public class QuizResultsDialog extends DialogFragment implements View.OnClickLis
     private boolean isSetup = false;
     private OnPostQuizResultsListener mListener;
     private int[] mScores;
+    private long mTimeTaken;
 
     public void setup(ArrayList<Question> questions, QuizManager.QuizMode quizMode,
-                      int[] scores){
+                      int[] scores, long timeTaken){
         this.mQuestions = questions;
         this.mQuizMode = quizMode;
         this.mScores = scores;
+        this.mTimeTaken = timeTaken;
 
         isSetup = true;
     }
@@ -54,6 +59,7 @@ public class QuizResultsDialog extends DialogFragment implements View.OnClickLis
         TextView scoreText = (TextView)parent.findViewById(R.id.quiz_dialog_score_display);
         ListView reviewList = (ListView)parent.findViewById(R.id.quiz_dialog_review_list);
         TextView warningText = (TextView)parent.findViewById(R.id.quiz_dialog_warning_display);
+        TextView titleText = (TextView)parent.findViewById(R.id.quiz_dialog_header_title);
 
         endButton.setOnClickListener(this);
 
@@ -88,6 +94,15 @@ public class QuizResultsDialog extends DialogFragment implements View.OnClickLis
                             "Incorrect: " + incorrect + " (" + percentIncorrect + "%)");
 
 
+        long seconds = TimeUnit.SECONDS.convert(mTimeTaken, TimeUnit.MILLISECONDS);
+        String secondsFormat = "" + seconds;
+        if (seconds < 10){
+            secondsFormat = "0" + secondsFormat;
+        }
+
+        titleText.setText("RESULTS - " + TimeUnit.MINUTES.convert(mTimeTaken, TimeUnit.MILLISECONDS)
+                            + ":" + secondsFormat);
+
         QuizResultsListAdapter adapter = new QuizResultsListAdapter(getActivity(), R.layout.row_quiz_answer,
                 mQuestions);
 
@@ -112,15 +127,10 @@ public class QuizResultsDialog extends DialogFragment implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        mListener.onQuizResultsClosed();
         this.dismissAllowingStateLoss();
     }
-
-
 
     public interface OnPostQuizResultsListener{
         public void onQuizResultsClosed();
     }
-
-
 }

@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.hinodesoftworks.kanagt.dialogs.KanaChartDisplayDialog;
 import com.hinodesoftworks.kanagt.util.KanaChartViewAdapter;
@@ -73,6 +74,7 @@ public class HiraganaChartFragment extends Fragment
                                     int prof, String diagramLoc ){
         KanaChartDisplayDialog d = KanaChartDisplayDialog.newInstance(kana, roman, correct,
                                     incorrect, prof, diagramLoc);
+
         d.show(getActivity().getFragmentManager(), "detailsFragment");
     }
 

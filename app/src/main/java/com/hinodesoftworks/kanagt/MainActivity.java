@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity implements
         HomeFragment.OnHomeFragmentInteractionListener, HiraganaListFragment.OnHiraListInteractionListener,
         NavDrawerFragment.OnNavMenuInteractionListener, KatakanaListFragment.OnKataListLoadedListener,
         HiraganaChartFragment.OnHiraganaChartFragmentListener, KatakanaChartFragment.OnKatakanaChartFragmentListener,
-        QuizSetupFragment.OnQuizSetupListener
+        QuizSetupFragment.OnQuizSetupListener, StatsFragment.OnStatsFragmentLoadedListener
 {
 
     //nav drawer variables
@@ -243,5 +243,15 @@ public class MainActivity extends ActionBarActivity implements
 
         sender.putExtra("mode", mode);
         startActivity(sender);
+    }
+
+    //stats fragment
+
+    @Override
+    public void onStatsFragmentLoaded(StatsFragment sender) {
+        Cursor hira = mDatabaseManager.getCharacterStats("hiragana");
+        Cursor kata = mDatabaseManager.getCharacterStats("katakana");
+
+        sender.updateStats(hira, kata, null);
     }
 }

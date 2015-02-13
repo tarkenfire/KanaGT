@@ -1,5 +1,7 @@
 package com.hinodesoftworks.kanagt.util;
 
+import android.os.SystemClock;
+
 import java.util.ArrayList;
 
 public class QuizManager {
@@ -14,6 +16,9 @@ public class QuizManager {
     private int questionCounter = 0;
     private int maxQuestions = 0;
     private int correct = 0, incorrect = 0;
+
+    long startTime = 0, endTime = 0;
+    long timeTaken;
 
 
     public QuizManager(){
@@ -41,6 +46,7 @@ public class QuizManager {
         mListener.onQuizStarted(question.getmRightAnswer(), question.getmDisplayAnswer(),
                             question.getmWrongAnswers());
 
+        startTime = SystemClock.elapsedRealtime();
     }
 
     public void checkAnswer(String answer){
@@ -69,7 +75,11 @@ public class QuizManager {
     }
 
     private void quizEnded(){
-        mListener.onQuizEnded(correct, incorrect);
+        endTime = SystemClock.elapsedRealtime();
+
+        timeTaken = endTime - startTime;
+
+        mListener.onQuizEnded(correct, incorrect, timeTaken);
     }
 
     //accessors
@@ -96,11 +106,15 @@ public class QuizManager {
         return maxQuestions;
     }
 
+    public long getTimeTaken() {
+        return timeTaken;
+    }
+
     //interface
     public interface QuizListener{
         public void onQuizStarted(String right, String rightDisplay, String[] wrongs);
         public void onNextQuestion(String right, String rightDisplay, String[] wrongs);
-        public void onQuizEnded(int correct, int incorrect);
+        public void onQuizEnded(int correct, int incorrect, long timeTaken);
     }
 
 }

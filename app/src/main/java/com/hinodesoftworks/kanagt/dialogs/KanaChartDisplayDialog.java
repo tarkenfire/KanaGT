@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hinodesoftworks.kanagt.R;
 
@@ -109,10 +110,6 @@ public class KanaChartDisplayDialog extends DialogFragment implements View.OnCli
                 profDisplay.setTextColor(Color.parseColor("#2D9C2E"));
                 break;
         }
-
-        //todo: show stroke dialogs
-
-
 
         return parent;
     }

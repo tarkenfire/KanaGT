@@ -67,7 +67,6 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
         button3.setOnClickListener(this);
         button4.setOnClickListener(this);
 
-        //TODO: make dynamic
 
         Intent args = this.getIntent();
         QuizManager.QuizMode mode = (QuizManager.QuizMode)args.getSerializableExtra("mode");
@@ -135,7 +134,6 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
 
         mQuizManager.setupQuiz(questions, totalQuestions, mode);
         mQuizManager.startQuiz();
-
     }
 
     @Override
@@ -208,7 +206,7 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
                 break;
             case 2:
                 button1.setText(wrongs[0]);
-                button2.setText(wrongs[2]);
+                button2.setText(wrongs[1]);
                 button3.setText(right);
                 button4.setText(wrongs[2]);
                 break;
@@ -222,40 +220,34 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     @Override
-    public void onQuizEnded(int correct, int incorrect) {
+    public void onQuizEnded(int correct, int incorrect, long timeTaken) {
         QuizResultsDialog dialog = new QuizResultsDialog();
         dialog.setup(mQuizManager.getmQuestions(), mQuizManager.getmQuizMode(),
-                        mQuizManager.getScore());
+                        mQuizManager.getScore(), timeTaken);
         dialog.setListener(this);
         dialog.show(getFragmentManager(), "quizResults");
     }
 
     @Override
     public void onQuizResultsClosed() {
-        //todo: update stats
-
         QuizManager.QuizMode mode = mQuizManager.getmQuizMode();
 
         //only update stats when it is a ranking quiz.
         if (mode == QuizMode.MODE_HIRA_R_QUIZ  || mode == QuizMode.MODE_KATA_R_QUIZ){
+            //update character stats
             ArrayList<Question> answeredQuestions = mQuizManager.getmQuestions();
             String table = mode == QuizMode.MODE_HIRA_R_QUIZ ? "hiragana" : "katakana";
 
             for (Question q : answeredQuestions){
-
-                try{
-                    mDatabaseManager.updateCharacterProf(table, q.getmDisplayAnswer(), q.isCorrect());
-
-                }
-                catch (Exception e){
-                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-                }
+                mDatabaseManager.updateCharacterProf(table, q.getmDisplayAnswer(), q.isCorrect());
             }
 
+            //update quiz stats
+            long time = mQuizManager.getTimeTaken();
+            int[] scores = mQuizManager.getScore();
+
+            mDatabaseManager.addNewQuizResult(scores[0], scores[1], time, mode);
         }
-
-
-
 
         this.finish();
     }

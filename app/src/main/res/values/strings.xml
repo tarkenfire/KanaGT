@@ -15,13 +15,14 @@
     <string name="button_welcome_kata_list">View Katakana List</string>
     <string name="button_welcome_kata_chart">View Katakana Chart</string>
     <string name="button_welcome_kata_quiz">Take a Practice Quiz</string>
+    <string name="button_stats_view_quizzes">View All Quiz Results</string>
 
     <string name="descriptor_kana_diagram">Stroke Diagram</string>
 
     <string name="lore_hiragana">Hiragana developed from man\'yōgana, Chinese characters used for their pronunciations, a practice which started in the 5th century. When they were first developed, hiragana were not accepted by everyone. The educated or elites preferred to use only the kanji system.\n\nHistorically, in Japan, the regular script (kaisho) form of the characters was used by men and called otokode (男手), "men's writing", while the cursive script (sōsho) form of the kanji was used by women. Hence hiragana first gained popularity among women, who were generally not allowed access to the same levels of education as men.\n\nIn modern times, the usage of hiragana has become mixed with katakana writing.</string>
     <string name="lore_katakana">Katakana was developed in the 9th century (during the early Heian period) by Buddhist monks by taking parts of man\'yōgana characters as a form of shorthand, hence this kana is so-called kata (片, ‘partial, fragmented’). Early on, katakana was almost exclusively used by men for official text and text imported from China. For example, ka (カ) comes from the left side of ka (加, literally ‘increase’, but the original meaning is no longer applicable to kana).\n\nKatakana is now relegated to special uses such as recently borrowed words (i.e., since the 19th century), names in transliteration, the names of animals, in telegrams, and for emphasis.</string>
 
-    <string name="placeholder_generic">Placeholder</string>
+    <string name="placeholder_generic">No Data</string>
 
     <string name="stat_total">96 Total</string>
     <string name="stat_unknown">96 Unknown</string>

@@ -164,7 +164,7 @@
                 android:layout_below="@id/main_quiz_title">
 
                 <TextView
-                    android:id="@+id/main_quiz_total_quizzes"
+                    android:id="@+id/main_quiz_average_score"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
@@ -178,19 +178,29 @@
                     android:text="@string/placeholder_generic"/>
 
                 <TextView
-                    android:id="@+id/main_quiz_low_score"
+                    android:id="@+id/main_quiz_average_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:text="@string/placeholder_generic"/>
 
                 <TextView
-                    android:id="@+id/main_quiz_average_score"
+                    android:id="@+id/main_quiz_lowest_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:text="@string/placeholder_generic"/>
             </LinearLayout>
+
+            <Button
+                android:id="@+id/main_quiz_show_button"
+                android:layout_below="@id/main_quiz_stat_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/nav_button_selector"
+                android:textColor="#FFF"
+                android:text="@string/button_stats_view_quizzes"
+                />
         </RelativeLayout>
     </LinearLayout>
 

@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.graphics.Color;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -13,6 +14,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.hinodesoftworks.kanagt.util.DatabaseManager;
 import com.hinodesoftworks.kanagt.util.NavMenuListAdapter;
@@ -64,6 +66,14 @@ public class MainActivity extends ActionBarActivity implements
 
         HomeFragment testFrag = new HomeFragment();
         changeViewFragment(testFrag);
+
+        try {
+            Cursor test = mDatabaseManager.getQuestionSet("hiragana", 5, 1, 2);
+            Toast.makeText(this, DatabaseUtils.dumpCursorToString(test), Toast.LENGTH_LONG).show();
+        }
+        catch(Exception e){
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
@@ -252,6 +262,8 @@ public class MainActivity extends ActionBarActivity implements
         Cursor hira = mDatabaseManager.getCharacterStats("hiragana");
         Cursor kata = mDatabaseManager.getCharacterStats("katakana");
 
-        sender.updateStats(hira, kata, null);
+        Cursor quiz = mDatabaseManager.getAllQuizResults();
+
+        sender.updateStats(hira, kata, quiz);
     }
 }

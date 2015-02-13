@@ -9,13 +9,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.concurrent.TimeUnit;
 
 public class StatsFragment extends Fragment {
 
     private OnStatsFragmentLoadedListener mListener;
 
+
     TextView hiraTotal, hiraUnknown, hiraKnown, hiraWellKnown, hiraMastered;
     TextView kataTotal, kataUnknown, kataKnown, kataWellKnown, kataMastered;
+    TextView avgScore, highScore, avgTime, lowTime;
+
+
 
     public StatsFragment() {
     }
@@ -37,6 +44,11 @@ public class StatsFragment extends Fragment {
         kataKnown = (TextView)holder.findViewById(R.id.main_kana_katakana_known_label);
         kataWellKnown = (TextView)holder.findViewById(R.id.main_kana_katakana_well_known_label);
         kataMastered = (TextView)holder.findViewById(R.id.main_kana_katakana_mastered_label);
+
+        avgScore = (TextView)holder.findViewById(R.id.main_quiz_average_score);
+        highScore = (TextView)holder.findViewById(R.id.main_quiz_high_score);
+        avgTime = (TextView)holder.findViewById(R.id.main_quiz_average_time);
+        lowTime = (TextView)holder.findViewById(R.id.main_quiz_lowest_time);
 
         return holder;
     }
@@ -138,8 +150,55 @@ public class StatsFragment extends Fragment {
         }
         
         kataStats.close();
-            
-        //TODO: quiz stats
+
+
+
+        //quiz stats
+
+        if (quizStats.getCount() > 0) {
+            int score[] = new int[quizStats.getCount()];
+            long time[] = new long[quizStats.getCount()];
+            score[quizStats.getPosition()] = quizStats.getInt(0);
+            time[quizStats.getPosition()] = quizStats.getLong(2);
+
+            while (quizStats.moveToNext()) {
+                score[quizStats.getPosition()] = quizStats.getInt(0);
+                time[quizStats.getPosition()] = quizStats.getLong(2);
+            }
+
+            int maxScore = getHighestScore(score);
+            long lowTimeLong = getShortestTime(time);
+
+            int averageScore = getAverageScore(score);
+            long averageTime = getAverageTimeMillis(time);
+
+            avgScore.setText("Average score: " + averageScore + "%");
+            highScore.setText("Highest score: " + maxScore + "%");
+
+
+            long seconds = TimeUnit.SECONDS.convert(lowTimeLong, TimeUnit.MILLISECONDS);
+            String lowTStringFormat = "" + seconds;
+            if (seconds < 10 ){
+                lowTStringFormat = "0" + lowTStringFormat;
+            }
+            lowTime.setText("Shortest Quiz Time: " + TimeUnit.MINUTES.convert(lowTimeLong,
+                                    TimeUnit.MILLISECONDS) + ":" + lowTStringFormat);
+
+            seconds = TimeUnit.SECONDS.convert(averageTime, TimeUnit.MILLISECONDS);
+            String avgTStringFormat = "" + seconds;
+            if (seconds < 10){
+                avgTStringFormat = "0" + avgTStringFormat;
+            }
+
+            avgTime.setText("Average Quiz Time: " + TimeUnit.MINUTES.convert(averageTime,
+                                    TimeUnit.MILLISECONDS) + ":" + avgTStringFormat);
+
+
+
+
+        }
+
+
 
         //display data
         hiraTotal.setText(hTotal + " Total");
@@ -153,7 +212,59 @@ public class StatsFragment extends Fragment {
         kataKnown.setText(kKnown + " Known");
         kataWellKnown.setText(kWellKnown + " Well Known");
         kataMastered.setText(kMastered + " Mastered");
+
+
+
+
     }
+
+    //utility methods
+    private int getAverageScore(int[] scores){
+        int total = 0;
+        int count = scores.length;
+
+        for (int s : scores){
+            total+= s;
+        }
+
+
+        return total / count;
+    }
+
+    private long getAverageTimeMillis(long[] times){
+        long total = 0;
+        int count = times.length;
+
+        for (long t : times){
+            total += t;
+        }
+
+        return total / count;
+    }
+
+    private int getHighestScore(int[] scores){
+        int max = scores[0];
+
+        for (int score : scores){
+            if (score > max){
+                max = score;
+            }
+        }
+        return max;
+    }
+
+    private long getShortestTime(long[] times){
+        long min = times[0];
+
+        for (long time : times){
+            if (time < min){
+                min = time;
+            }
+        }
+        return min;
+    }
+
+
 
     public interface OnStatsFragmentLoadedListener{
         public void onStatsFragmentLoaded(StatsFragment sender);

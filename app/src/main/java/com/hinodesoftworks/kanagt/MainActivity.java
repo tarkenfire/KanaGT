@@ -66,14 +66,6 @@ public class MainActivity extends ActionBarActivity implements
 
         HomeFragment testFrag = new HomeFragment();
         changeViewFragment(testFrag);
-
-        try {
-            Cursor test = mDatabaseManager.getQuestionSet("hiragana", 5, 1, 2);
-            Toast.makeText(this, DatabaseUtils.dumpCursorToString(test), Toast.LENGTH_LONG).show();
-        }
-        catch(Exception e){
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
-        }
     }
 
     @Override
@@ -248,10 +240,11 @@ public class MainActivity extends ActionBarActivity implements
     //quiz setup fragment
 
     @Override
-    public void onQuizStartButtonPressed(QuizManager.QuizMode mode) {
+    public void onQuizStartButtonPressed(QuizManager.QuizMode mode, int numOfQuestions) {
         Intent sender = new Intent(this, QuizActivity.class);
 
         sender.putExtra("mode", mode);
+        sender.putExtra("num_of_questions", numOfQuestions);
         startActivity(sender);
     }
 
@@ -261,7 +254,6 @@ public class MainActivity extends ActionBarActivity implements
     public void onStatsFragmentLoaded(StatsFragment sender) {
         Cursor hira = mDatabaseManager.getCharacterStats("hiragana");
         Cursor kata = mDatabaseManager.getCharacterStats("katakana");
-
         Cursor quiz = mDatabaseManager.getAllQuizResults();
 
         sender.updateStats(hira, kata, quiz);

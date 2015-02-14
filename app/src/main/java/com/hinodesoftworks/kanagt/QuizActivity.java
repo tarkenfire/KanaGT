@@ -72,7 +72,7 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
         QuizManager.QuizMode mode = (QuizManager.QuizMode)args.getSerializableExtra("mode");
 
         //todo: get value from passed intent
-        int totalQuestions = 20;
+        int totalQuestions = args.getIntExtra("num_of_questions", 10);
 
         String table = "hiragana";
 

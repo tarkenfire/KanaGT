@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.hinodesoftworks.kanagt.util.QuizManager;
 
@@ -17,6 +18,8 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
 
     private OnQuizSetupListener mListener;
     private QuizManager.QuizMode mQuizMode = QuizManager.QuizMode.MODE_HIRA_P_QUIZ;
+
+    Spinner spinner;
 
     public QuizSetupFragment() {
         // Required empty public constructor
@@ -52,7 +55,7 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
         }
 
         //setup spinner
-        Spinner spinner = (Spinner)holder.findViewById(R.id.quiz_setup_num_of_question_spinner);
+        spinner = (Spinner)holder.findViewById(R.id.quiz_setup_num_of_question_spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
                         R.array.quiz_spinner_choices, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -86,11 +89,33 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        mListener.onQuizStartButtonPressed(mQuizMode);
+
+        int choice = spinner.getSelectedItemPosition();
+
+        Toast.makeText(getActivity(), "" + choice, Toast.LENGTH_SHORT).show();
+
+        int qs = 10;
+        switch (choice){
+            case 0:
+                qs = 5;
+                break;
+            case 1:
+                qs = 10;
+                break;
+            case 2:
+                qs = 15;
+                break;
+            case 3:
+                qs = 20;
+                break;
+        }
+
+
+        mListener.onQuizStartButtonPressed(mQuizMode, qs);
     }
 
     public interface OnQuizSetupListener {
-        public void onQuizStartButtonPressed(QuizManager.QuizMode mode);
+        public void onQuizStartButtonPressed(QuizManager.QuizMode mode, int numOfQuestions);
     }
 
 }

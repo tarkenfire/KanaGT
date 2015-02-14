@@ -96,13 +96,9 @@ public class DatabaseManager extends SQLiteAssetHelper {
 
         qb.setTables(table);
         String[] projection = {"character", "roman"};
-        
-
 
         Cursor c = qb.query(db,projection, "rowid>=" + classMin + " AND rowid<=" + classMax,
                                 null, null, null, "Random()", "" + numberOfQuestions);
-
-
         c.moveToFirst();
         db.close();
 

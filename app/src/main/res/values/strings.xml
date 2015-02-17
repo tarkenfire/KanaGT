@@ -16,6 +16,7 @@
     <string name="button_welcome_kata_chart">View Katakana Chart</string>
     <string name="button_welcome_kata_quiz">Take a Practice Quiz</string>
     <string name="button_stats_view_quizzes">View All Quiz Results</string>
+    <string name="button_close">Close</string>
 
     <string name="descriptor_kana_diagram">Stroke Diagram</string>
 
@@ -47,6 +48,7 @@
     <string name="title_fragment_kata_chart">Katakana Chart</string>
     <string name="title_fragment_stats">User Statistics</string>
     <string name="title_settings">Settings</string>
+    <string name="title_quiz_history">Quiz History</string>
 
     <string name="title_results">Results</string>
     <string name="title_char_details">Kana Details</string>

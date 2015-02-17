@@ -198,6 +198,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/nav_button_selector"
+                android:layout_marginTop="10dp"
                 android:textColor="#FFF"
                 android:text="@string/button_stats_view_quizzes"
                 />

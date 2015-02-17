@@ -8,12 +8,17 @@ import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hinodesoftworks.kanagt.dialogs.QuizHistoryDialog;
+import com.hinodesoftworks.kanagt.util.QuizResult;
+
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-public class StatsFragment extends Fragment {
+public class StatsFragment extends Fragment implements View.OnClickListener {
 
     private OnStatsFragmentLoadedListener mListener;
 
@@ -49,6 +54,9 @@ public class StatsFragment extends Fragment {
         highScore = (TextView)holder.findViewById(R.id.main_quiz_high_score);
         avgTime = (TextView)holder.findViewById(R.id.main_quiz_average_time);
         lowTime = (TextView)holder.findViewById(R.id.main_quiz_lowest_time);
+
+        Button b = (Button)holder.findViewById(R.id.main_quiz_show_button);
+        b.setOnClickListener(this);
 
         return holder;
     }
@@ -151,8 +159,6 @@ public class StatsFragment extends Fragment {
         
         kataStats.close();
 
-
-
         //quiz stats
 
         if (quizStats.getCount() > 0) {
@@ -198,8 +204,6 @@ public class StatsFragment extends Fragment {
 
         }
 
-
-
         //display data
         hiraTotal.setText(hTotal + " Total");
         hiraUnknown.setText(hUnknown + " Unknown");
@@ -212,10 +216,27 @@ public class StatsFragment extends Fragment {
         kataKnown.setText(kKnown + " Known");
         kataWellKnown.setText(kWellKnown + " Well Known");
         kataMastered.setText(kMastered + " Mastered");
+    }
 
+    public void showHistoryDialog(Cursor data){
+        if (data.getCount() == 0){
+            Toast.makeText(getActivity(), "No quiz history to display", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        ArrayList<QuizResult> results = new ArrayList<>();
 
+        results.add(new QuizResult(data.getString(1), data.getInt(0), data.getLong(3),
+                        data.getLong(2)));
 
+        while (data.moveToNext()){
+            results.add(new QuizResult(data.getString(1), data.getInt(0), data.getLong(3),
+                    data.getLong(2)));
+        }
+
+        QuizHistoryDialog dialog = new QuizHistoryDialog();
+        dialog.setup(results);
+        dialog.show(getFragmentManager(), "quizHistory");
     }
 
     //utility methods
@@ -264,10 +285,15 @@ public class StatsFragment extends Fragment {
         return min;
     }
 
-
+    //interface
+    @Override
+    public void onClick(View v) {
+        mListener.onHistoryButtonPressed(this);
+    }
 
     public interface OnStatsFragmentLoadedListener{
         public void onStatsFragmentLoaded(StatsFragment sender);
+        public void onHistoryButtonPressed(StatsFragment sender);
     }
 
 }

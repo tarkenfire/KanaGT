@@ -260,6 +260,10 @@ public class MainActivity extends ActionBarActivity implements
         sender.updateStats(hira, kata, quiz);
     }
 
+    public void onHistoryButtonPressed(StatsFragment sender){
+        sender.showHistoryDialog(mDatabaseManager.getAllQuizResults());
+    }
+
     //prefs fragment
     @Override
     public void onDatabaseDeleteClicked() {

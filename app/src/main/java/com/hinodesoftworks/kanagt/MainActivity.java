@@ -26,7 +26,8 @@ public class MainActivity extends ActionBarActivity implements
         HomeFragment.OnHomeFragmentInteractionListener, HiraganaListFragment.OnHiraListInteractionListener,
         NavDrawerFragment.OnNavMenuInteractionListener, KatakanaListFragment.OnKataListLoadedListener,
         HiraganaChartFragment.OnHiraganaChartFragmentListener, KatakanaChartFragment.OnKatakanaChartFragmentListener,
-        QuizSetupFragment.OnQuizSetupListener, StatsFragment.OnStatsFragmentLoadedListener
+        QuizSetupFragment.OnQuizSetupListener, StatsFragment.OnStatsFragmentLoadedListener,
+        PrefsFragment.PreferenceListener
 {
 
     //nav drawer variables
@@ -257,5 +258,11 @@ public class MainActivity extends ActionBarActivity implements
         Cursor quiz = mDatabaseManager.getAllQuizResults();
 
         sender.updateStats(hira, kata, quiz);
+    }
+
+    //prefs fragment
+    @Override
+    public void onDatabaseDeleteClicked() {
+        mDatabaseManager.resetDatabases();
     }
 }

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <CheckBoxPreference
-        android:key="pref_sync"
-        android:title="Example Setting"
-        android:summary="This is an example of a setting."
-        android:defaultValue="true" />
+    <com.hinodesoftworks.kanagt.dialogs.ClearDatabasePrefDialog
+        android:key="clearDatabase"
+        android:title="@string/prefs_title_clear_database"
+        android:summary="@string/prefs_summary_clear_database" />
+
+    <Preference
+        android:key="showLicenses"
+        android:title="@string/prefs_title_licenses"
+        android:summary="@string/prefs_summary_licenses"
+        />
 
 </PreferenceScreen>

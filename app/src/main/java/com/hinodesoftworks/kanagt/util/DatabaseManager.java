@@ -17,13 +17,22 @@ public class DatabaseManager extends SQLiteAssetHelper {
     private static final String DB_NAME = "kana.db";
     private static final int DB_VERSION = 1;
 
-    private Context testCtx;
+    private Context ctx;
 
     public DatabaseManager (Context context){
         super (context, DB_NAME, null, DB_VERSION);
-        testCtx = context;
+        ctx = context;
     }
 
+    //reset database
+    public void resetDatabases(){
+        this.setForcedUpgrade(DB_VERSION);
+        SQLiteDatabase db = getWritableDatabase();
+        db.setVersion(-1);
+        db.close();
+        db = getWritableDatabase();
+        db.close();
+    }
 
     //"query" methods
     public Cursor getAllHira(){

@@ -24,6 +24,15 @@
 
     <string name="placeholder_generic">No Data</string>
 
+    <string name="prefs_title_clear_database">Clear User Data</string>
+    <string name="prefs_title_licenses">Licenses</string>
+
+    <string name="prefs_summary_clear_database">Clears all user data, including statistics and test results.</string>
+    <string name="prefs_summary_licenses">Show licenses used for data.</string>
+
+    <string name="prefs_text_clear_database">This action will clear all user-generated data, such as quiz results and character learning levels, and reset them to their default values.</string>
+    <string name="prefs_text_clear_database_warning">THIS ACTION CANNOT BE UNDONE.</string>
+
     <string name="stat_total">96 Total</string>
     <string name="stat_unknown">96 Unknown</string>
     <string name="stat_known">0 Known</string>

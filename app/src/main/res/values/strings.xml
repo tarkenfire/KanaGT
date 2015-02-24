@@ -20,6 +20,8 @@
 
     <string name="descriptor_kana_diagram">Stroke Diagram</string>
 
+    <string name="licence">Kana GT uses data from the following sources under the following licenses:\n\n<b>Kana Stroke Diagrams</b>\nAuthored by D.328 and M4RC0 for the Wikimedia Stroke Order Project\nLicensed under the Creative Commons Attribution-ShareAlike 2.0 Generic License\n\n<b>Kana History</b>\nAuthored by various authors for Wikipedia\nLicensed under the Creative Commons Attribution-ShareAlike 3.0 Unported License</string>
+
     <string name="lore_hiragana">Hiragana developed from man\'yōgana, Chinese characters used for their pronunciations, a practice which started in the 5th century. When they were first developed, hiragana were not accepted by everyone. The educated or elites preferred to use only the kanji system.\n\nHistorically, in Japan, the regular script (kaisho) form of the characters was used by men and called otokode (男手), "men's writing", while the cursive script (sōsho) form of the kanji was used by women. Hence hiragana first gained popularity among women, who were generally not allowed access to the same levels of education as men.\n\nIn modern times, the usage of hiragana has become mixed with katakana writing.</string>
     <string name="lore_katakana">Katakana was developed in the 9th century (during the early Heian period) by Buddhist monks by taking parts of man\'yōgana characters as a form of shorthand, hence this kana is so-called kata (片, ‘partial, fragmented’). Early on, katakana was almost exclusively used by men for official text and text imported from China. For example, ka (カ) comes from the left side of ka (加, literally ‘increase’, but the original meaning is no longer applicable to kana).\n\nKatakana is now relegated to special uses such as recently borrowed words (i.e., since the 19th century), names in transliteration, the names of animals, in telegrams, and for emphasis.</string>
 
@@ -90,4 +92,7 @@
         <item>Katakana with and without diacritics from キャ-ピョ (35 Characters)</item>
         <item>All Hiragana and Diagraphs, with and without diacritics (107 Characters)</item>
     </string-array>
+    <string name="title_activity_credits">Credits</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>

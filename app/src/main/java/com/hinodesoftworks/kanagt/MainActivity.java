@@ -271,4 +271,10 @@ public class MainActivity extends ActionBarActivity implements
     public void onDatabaseDeleteClicked() {
         mDatabaseManager.resetDatabases();
     }
+
+    @Override
+    public void showLicense() {
+        Intent i = new Intent(this, CreditsActivity.class);
+        startActivity(i);
+    }
 }

@@ -20,7 +20,15 @@
         <activity
             android:name=".QuizActivity"
             android:label="@string/title_activity_quiz"
-            android:screenOrientation="portrait"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.hinodesoftworks.kanagt.MainActivity" />
+        </activity>
+        <activity
+            android:name=".CreditsActivity"
+            android:label="@string/title_activity_credits"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

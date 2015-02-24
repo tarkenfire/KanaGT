@@ -40,7 +40,7 @@ public class PrefsFragment extends PreferenceFragment implements
         String key = preference.getKey();
 
         if (key.matches("showLicenses")){
-            Toast.makeText(getActivity(), "License", Toast.LENGTH_SHORT).show();
+            mListener.showLicense();
         }
 
         return true;
@@ -54,6 +54,7 @@ public class PrefsFragment extends PreferenceFragment implements
 
     public interface PreferenceListener{
         public void onDatabaseDeleteClicked();
+        public void showLicense();
     }
 
 

@@ -8,7 +8,6 @@ public class QuizManager {
 
     public enum QuizMode{MODE_HIRA_P_QUIZ, MODE_HIRA_R_QUIZ, MODE_KATA_P_QUIZ, MODE_KATA_R_QUIZ}
 
-
     private QuizListener mListener;
     private QuizMode mQuizMode;
     private ArrayList<Question> mQuestions;

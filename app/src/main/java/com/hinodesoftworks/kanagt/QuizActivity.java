@@ -34,6 +34,9 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
     private DatabaseManager mDatabaseManager;
     private QuizManager mQuizManager;
 
+    //int constants for determining quiz sets
+    public static final int SET_BASIC = 0, SET_EXTENDED = 1, SET_DAKUTEN = 2, SET_DIACRITIC = 3,
+            SET_FULL = 4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,11 +70,9 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
         button3.setOnClickListener(this);
         button4.setOnClickListener(this);
 
-
         Intent args = this.getIntent();
         QuizManager.QuizMode mode = (QuizManager.QuizMode)args.getSerializableExtra("mode");
 
-        //todo: get value from passed intent
         int totalQuestions = args.getIntExtra("num_of_questions", 10);
 
         String table = "hiragana";
@@ -98,7 +99,33 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
         String[] rDisplay = new String[totalQuestions];
         String[] rAnswer = new String[totalQuestions];
 
-        Cursor rightCursor = mDatabaseManager.getQuestionSet(table, totalQuestions);
+
+        Cursor rightCursor;
+
+        int setChoice = args.getIntExtra("set_choice", SET_FULL);
+
+        switch (setChoice){
+            case SET_BASIC:
+                rightCursor = mDatabaseManager.getQuestionSet(table, totalQuestions, 1, 46);
+                break;
+            case SET_EXTENDED:
+                rightCursor = mDatabaseManager.getQuestionSet(table, totalQuestions, 1, 71);
+                break;
+            case SET_DAKUTEN:
+                rightCursor = mDatabaseManager.getQuestionSet(table, totalQuestions, 47, 71);
+                break;
+            case SET_DIACRITIC:
+                rightCursor = mDatabaseManager.getQuestionSet(table, totalQuestions, 72, 107);
+                break;
+            case SET_FULL:
+                rightCursor = mDatabaseManager.getQuestionSet(table, totalQuestions);
+                break;
+            default:
+                rightCursor = mDatabaseManager.getQuestionSet(table, totalQuestions);
+                break;
+        }
+
+
         rightCursor.moveToFirst();
         rDisplay[0] = rightCursor.getString(0);
         rAnswer[0] = rightCursor.getString(1);

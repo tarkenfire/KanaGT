@@ -57,12 +57,8 @@
     <string name="title_katakana">Katakana</string>
     <string name="title_quiz_stat">Quiz Statistics</string>
 
-
-
     <string name="action_settings">Settings</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-
     
     <string-array name="quiz_spinner_choices">
         <item>5 Question Quiz</item>
@@ -71,4 +67,27 @@
         <item>20 Question Quiz</item>
     </string-array>
 
+    <string-array name="kana_set_titles">
+        <item>Basic Set</item>
+        <item>Extended Set</item>
+        <item>Dakuten Set</item>
+        <item>Diagraph Set</item>
+        <item>Full Set</item>
+    </string-array>
+
+    <string-array name="hira_set_descs">
+        <item>Basic Hiragana from あ-ん (46 Characters)</item>
+        <item>Basic Hiragana plus Hiragana with diacritics from あ-ぺ (70 Characters)</item>
+        <item>Hiragana with diacritics from が-ぺ (23 Characters)</item>
+        <item>Diagraphs with and without diacritics from きゃ-ぴょ (35 Characters)</item>
+        <item>All Hiragana and Diagraphs, with and without diacritics (107 Characters)</item>
+    </string-array>
+
+    <string-array name="kata_set_descs">
+        <item>Basic Katakana from ア-ン (46 Characters)</item>
+        <item>Basic Katakana plus Katakana with diacritics from ア-ペ (70 Characters)</item>
+        <item>Katakana with diacritics from ゴ-ペ (23 Characters)</item>
+        <item>Katakana with and without diacritics from キャ-ピョ (35 Characters)</item>
+        <item>All Hiragana and Diagraphs, with and without diacritics (107 Characters)</item>
+    </string-array>
 </resources>

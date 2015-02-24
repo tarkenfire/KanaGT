@@ -8,18 +8,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hinodesoftworks.kanagt.util.CharacterSetListAdapter;
+import com.hinodesoftworks.kanagt.util.KanaSet;
 import com.hinodesoftworks.kanagt.util.QuizManager;
+
+import java.util.ArrayList;
 
 public class QuizSetupFragment extends Fragment implements View.OnClickListener {
 
     private OnQuizSetupListener mListener;
     private QuizManager.QuizMode mQuizMode = QuizManager.QuizMode.MODE_HIRA_P_QUIZ;
 
-    Spinner spinner;
+    Spinner spinner, modeView;
+
 
     public QuizSetupFragment() {
         // Required empty public constructor
@@ -37,22 +43,44 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
         View holder = inflater.inflate(R.layout.fragment_quiz_setup, container, false);
 
         TextView titleView = (TextView)holder.findViewById(R.id.quiz_setup_title);
+        ArrayList<KanaSet> kanaSets = new ArrayList<>();
+        String[] titles = getActivity().getResources().getStringArray(R.array.kana_set_titles);
+        String[] descs = getActivity().getResources().getStringArray(R.array.hira_set_descs);
 
-        //TODO: Hard coded strings
         switch (mQuizMode){
             case MODE_HIRA_P_QUIZ:
                 titleView.setText("Hiragana Practice Quiz");
+                descs = getActivity().getResources().getStringArray(R.array.hira_set_descs);
                 break;
             case MODE_HIRA_R_QUIZ:
                 titleView.setText("Hiragana Ranking Quiz");
+                descs = getActivity().getResources().getStringArray(R.array.hira_set_descs);
                 break;
             case MODE_KATA_P_QUIZ:
+                descs = getActivity().getResources().getStringArray(R.array.kata_set_descs);
                 titleView.setText("Katakana Practice Quiz");
                 break;
             case MODE_KATA_R_QUIZ:
+                descs = getActivity().getResources().getStringArray(R.array.kata_set_descs);
                 titleView.setText("Katakana Ranking Quiz");
                 break;
         }
+
+        //setup list choices
+        for (int i = 0; i < titles.length ; i++){
+            KanaSet set = KanaSet.getInstance();
+            set.title = titles[i];
+            set.desc = descs[i];
+
+            kanaSets.add(set);
+        }
+
+        modeView = (Spinner)holder.findViewById(R.id.quiz_setup_set_spinner);
+        CharacterSetListAdapter csadapter = new CharacterSetListAdapter(getActivity(),
+                                        R.layout.row_kana_set, kanaSets);
+
+        modeView.setAdapter(csadapter);
+
 
         //setup spinner
         spinner = (Spinner)holder.findViewById(R.id.quiz_setup_num_of_question_spinner);
@@ -92,7 +120,7 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
 
         int choice = spinner.getSelectedItemPosition();
 
-        Toast.makeText(getActivity(), "" + choice, Toast.LENGTH_SHORT).show();
+        int modeChoice = modeView.getSelectedItemPosition();
 
         int qs = 10;
         switch (choice){
@@ -111,11 +139,12 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
         }
 
 
-        mListener.onQuizStartButtonPressed(mQuizMode, qs);
+        mListener.onQuizStartButtonPressed(mQuizMode, qs, modeChoice);
     }
 
     public interface OnQuizSetupListener {
-        public void onQuizStartButtonPressed(QuizManager.QuizMode mode, int numOfQuestions);
+        public void onQuizStartButtonPressed(QuizManager.QuizMode mode, int numOfQuestions,
+                                             int quizSet);
     }
 
 }

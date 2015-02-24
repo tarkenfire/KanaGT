@@ -19,7 +19,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select Quiz Length"/>
+        android:text="Select Quiz Length"
+        android:textSize="24sp"/>
 
     <Spinner
         android:id="@+id/quiz_setup_num_of_question_spinner"
@@ -30,50 +31,15 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Select Character Sets for Quiz (Currently Disabled)"/>
+        android:text="Select Character Sets for Quiz"
+        android:textSize="24sp"/>
 
-    <CheckBox
-        android:id="@+id/quiz_setup_all_set_checkbox"
+    <Spinner
+        android:id="@+id/quiz_setup_set_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="All Sets (あ-ぴょ)"
-        android:enabled="false"/>
-
-    <CheckBox
-        android:id="@+id/quiz_setup_basic_set_checkbox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Basic Set (あ-ろ)"
-        android:enabled="false"/>
-
-    <CheckBox
-        android:id="@+id/quiz_setup_extended_set_checkbox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Extended Set (や, ゆ, よ, わ, を, ん)"
-        android:enabled="false"/>
-
-    <CheckBox
-        android:id="@+id/quiz_setup_yoon_set_checkbox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Yoon Set (きゃ-りょ)"
-        android:enabled="false"/>
-
-    <CheckBox
-        android:id="@+id/quiz_setup_dakuten_set_checkbox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="(Han)Dakuten Set (が-ぽ)"
-        android:enabled="false"/>
-
-    <CheckBox
-        android:id="@+id/quiz_setup_dakuten_yoon_set_checkbox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="(Han)Dakuten Yoon Set (ぎゃ-ぴょ)"
-        android:enabled="false"/>
-
+        android:paddingTop="10dp"
+        />
 
     <Button
         android:id="@+id/quiz_setup_button"

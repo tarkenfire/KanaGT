@@ -241,11 +241,13 @@ public class MainActivity extends ActionBarActivity implements
     //quiz setup fragment
 
     @Override
-    public void onQuizStartButtonPressed(QuizManager.QuizMode mode, int numOfQuestions) {
+    public void onQuizStartButtonPressed(QuizManager.QuizMode mode, int numOfQuestions,
+                                         int setChoice) {
         Intent sender = new Intent(this, QuizActivity.class);
 
         sender.putExtra("mode", mode);
         sender.putExtra("num_of_questions", numOfQuestions);
+        sender.putExtra("set_choice", setChoice);
         startActivity(sender);
     }
 

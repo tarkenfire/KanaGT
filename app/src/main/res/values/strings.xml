@@ -43,6 +43,7 @@
     <string name="stat_mastered">0 Mastered</string>
 
     <string name="title_activity_quiz">Kana Quiz</string>
+    <string name="title_activity_credits">Credits</string>
     <string name="title_fragment_quiz_setup">Quiz Setup</string>
     <string name="title_fragment_hira_list">Hiragana List</string>
     <string name="title_fragment_hira_chart">Hiragana Chart</string>
@@ -59,8 +60,8 @@
     <string name="title_katakana">Katakana</string>
     <string name="title_quiz_stat">Quiz Statistics</string>
 
-    <string name="action_settings">Settings</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_quiz_setup_num_of_questions">Select Quiz Length</string>
+    <string name="title_quiz_setup_kana_set">Select Character Sets for Quiz</string>
     
     <string-array name="quiz_spinner_choices">
         <item>5 Question Quiz</item>
@@ -92,7 +93,5 @@
         <item>Katakana with and without diacritics from キャ-ピョ (35 Characters)</item>
         <item>All Hiragana and Diagraphs, with and without diacritics (107 Characters)</item>
     </string-array>
-    <string name="title_activity_credits">Credits</string>
 
-    <string name="hello_world">Hello world!</string>
 </resources>

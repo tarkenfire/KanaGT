@@ -16,8 +16,8 @@ public class QuizManager {
     private int maxQuestions = 0;
     private int correct = 0, incorrect = 0;
 
-    long startTime = 0, endTime = 0;
-    long timeTaken;
+    private long startTime = 0;
+    private long timeTaken;
 
 
     public QuizManager(){
@@ -74,7 +74,7 @@ public class QuizManager {
     }
 
     private void quizEnded(){
-        endTime = SystemClock.elapsedRealtime();
+        long endTime = SystemClock.elapsedRealtime();
 
         timeTaken = endTime - startTime;
 

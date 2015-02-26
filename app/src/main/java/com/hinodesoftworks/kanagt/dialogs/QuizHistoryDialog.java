@@ -2,7 +2,6 @@ package com.hinodesoftworks.kanagt.dialogs;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;

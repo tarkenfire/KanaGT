@@ -72,13 +72,6 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener,
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
-
-
-    }
-
-    @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {

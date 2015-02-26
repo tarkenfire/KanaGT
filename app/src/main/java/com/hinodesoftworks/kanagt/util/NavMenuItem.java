@@ -4,9 +4,9 @@ import com.hinodesoftworks.kanagt.util.NavMenuListAdapter.NavType;
 import com.hinodesoftworks.kanagt.util.NavMenuListAdapter.NavLocation;
 
 public class NavMenuItem{
-    private NavType navType;
-    private NavLocation navLocation;
-    private String name;
+    private final NavType navType;
+    private final NavLocation navLocation;
+    private final String name;
 
     public NavMenuItem(NavType navType, NavLocation navLocation, String name){
         this.navType = navType; this.navLocation = navLocation; this.name = name;

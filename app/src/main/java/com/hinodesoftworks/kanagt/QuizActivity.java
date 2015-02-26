@@ -2,18 +2,13 @@ package com.hinodesoftworks.kanagt;
 
 import android.content.Intent;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hinodesoftworks.kanagt.dialogs.QuizResultsDialog;
 import com.hinodesoftworks.kanagt.util.DatabaseManager;
@@ -35,7 +30,7 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
     private QuizManager mQuizManager;
 
     //int constants for determining quiz sets
-    public static final int SET_BASIC = 0, SET_EXTENDED = 1, SET_DAKUTEN = 2, SET_DIACRITIC = 3,
+    private static final int SET_BASIC = 0, SET_EXTENDED = 1, SET_DAKUTEN = 2, SET_DIACRITIC = 3,
             SET_FULL = 4;
 
     @Override

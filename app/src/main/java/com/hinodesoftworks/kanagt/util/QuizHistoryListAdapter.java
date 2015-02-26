@@ -18,8 +18,8 @@ import java.util.concurrent.TimeUnit;
 
 public class QuizHistoryListAdapter extends ArrayAdapter<QuizResult> {
 
-    private ArrayList<QuizResult> mItems;
-    private Context ctx;
+    private final ArrayList<QuizResult> mItems;
+    private final Context ctx;
 
     public QuizHistoryListAdapter(Context context, int resource, ArrayList<QuizResult> objects) {
         super(context, resource, objects);

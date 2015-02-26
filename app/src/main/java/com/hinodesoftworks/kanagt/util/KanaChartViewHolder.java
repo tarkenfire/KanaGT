@@ -10,7 +10,7 @@ import com.hinodesoftworks.kanagt.R;
 public class KanaChartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     public TextView kanaDisplay;
     public TextView romaDisplay;
-    protected OnHolderClickedListener onHolderClickedListener;
+    private OnHolderClickedListener onHolderClickedListener;
 
     public KanaChartViewHolder(View itemView, OnHolderClickedListener listener) {
         super(itemView);

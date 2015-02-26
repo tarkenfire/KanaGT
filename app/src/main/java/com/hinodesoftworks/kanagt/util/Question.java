@@ -1,9 +1,9 @@
 package com.hinodesoftworks.kanagt.util;
 
 public class Question {
-    private String mRightAnswer;
-    private String mDisplayAnswer;
-    private String[] mWrongAnswers;
+    private final String mRightAnswer;
+    private final String mDisplayAnswer;
+    private final String[] mWrongAnswers;
     private boolean isCorrect = false;
     private String userAnswer;
 

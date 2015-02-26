@@ -23,9 +23,9 @@ public class StatsFragment extends Fragment implements View.OnClickListener {
     private OnStatsFragmentLoadedListener mListener;
 
 
-    TextView hiraTotal, hiraUnknown, hiraKnown, hiraWellKnown, hiraMastered;
-    TextView kataTotal, kataUnknown, kataKnown, kataWellKnown, kataMastered;
-    TextView avgScore, highScore, avgTime, lowTime;
+    private TextView hiraTotal, hiraUnknown, hiraKnown, hiraWellKnown, hiraMastered;
+    private TextView kataTotal, kataUnknown, kataKnown, kataWellKnown, kataMastered;
+    private TextView avgScore, highScore, avgTime, lowTime;
 
 
 

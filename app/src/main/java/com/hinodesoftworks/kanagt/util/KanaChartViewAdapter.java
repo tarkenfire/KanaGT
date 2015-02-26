@@ -11,8 +11,8 @@ import com.hinodesoftworks.kanagt.R;
 public class KanaChartViewAdapter extends RecyclerView.Adapter<KanaChartViewHolder>
             implements KanaChartViewHolder.OnHolderClickedListener{
 
-    private Cursor mCursor;
-    private OnChartItemClickListener mListener;
+    private final Cursor mCursor;
+    private final OnChartItemClickListener mListener;
 
     public KanaChartViewAdapter(Cursor items, OnChartItemClickListener listener){
         mCursor = items;

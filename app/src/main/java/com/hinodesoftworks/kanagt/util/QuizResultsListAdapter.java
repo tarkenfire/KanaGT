@@ -13,8 +13,8 @@ import com.hinodesoftworks.kanagt.R;
 import java.util.ArrayList;
 
 public class QuizResultsListAdapter extends ArrayAdapter<Question> {
-    private Context ctx;
-    private ArrayList<Question> mQuestions;
+    private final Context ctx;
+    private final ArrayList<Question> mQuestions;
 
     public QuizResultsListAdapter(Context context, int resource, ArrayList<Question> items){
         super (context, resource, items);

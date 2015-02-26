@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class CharacterSetListAdapter extends ArrayAdapter<KanaSet> {
 
-    private ArrayList<KanaSet> mItems;
-    private Context ctx;
+    private final ArrayList<KanaSet> mItems;
+    private final Context ctx;
 
     public CharacterSetListAdapter(Context context, int resource, ArrayList<KanaSet> items) {
         super(context, resource, items);

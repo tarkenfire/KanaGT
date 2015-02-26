@@ -8,10 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hinodesoftworks.kanagt.util.CharacterSetListAdapter;
 import com.hinodesoftworks.kanagt.util.KanaSet;
@@ -24,7 +22,7 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
     private OnQuizSetupListener mListener;
     private QuizManager.QuizMode mQuizMode = QuizManager.QuizMode.MODE_HIRA_P_QUIZ;
 
-    Spinner spinner, modeView;
+    private Spinner spinner, modeView;
 
 
     public QuizSetupFragment() {

@@ -19,8 +19,8 @@ public class NavMenuListAdapter extends ArrayAdapter<NavMenuItem> {
                     LOC_KATA_R_QUIZ, LOC_STATS, LOC_SETTINGS}
 
     //private ref vars
-    private Context ctx;
-    private ArrayList<NavMenuItem> items;
+    private final Context ctx;
+    private final ArrayList<NavMenuItem> items;
 
 
     public NavMenuListAdapter(Context context, int resource, ArrayList<NavMenuItem> objects) {

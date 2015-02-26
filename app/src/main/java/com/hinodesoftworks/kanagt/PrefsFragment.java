@@ -5,8 +5,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.support.annotation.NonNull;
-import android.widget.Toast;
+import android.support.annotation.Nullable;
 
 import com.hinodesoftworks.kanagt.dialogs.ClearDatabasePrefDialog;
 

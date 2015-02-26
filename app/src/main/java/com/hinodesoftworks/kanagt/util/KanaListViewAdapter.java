@@ -100,11 +100,11 @@ public class KanaListViewAdapter extends RecyclerView.Adapter<KanaListViewAdapte
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
-        public TextView kanaDisplay;
-        public TextView romaDisplay;
-        public ImageView diagramDisplay;
-        public TextView dataView1;
-        public TextView dataView2;
+        public final TextView kanaDisplay;
+        public final TextView romaDisplay;
+        public final ImageView diagramDisplay;
+        public final TextView dataView1;
+        public final TextView dataView2;
 
         public ViewHolder(View itemView) {
             super(itemView);

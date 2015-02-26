@@ -3,10 +3,8 @@ package com.hinodesoftworks.kanagt.util;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteQueryBuilder;
-import android.widget.Toast;
 
 import com.readystatesoftware.sqliteasset.SQLiteAssetHelper;
 
@@ -17,11 +15,9 @@ public class DatabaseManager extends SQLiteAssetHelper {
     private static final String DB_NAME = "kana.db";
     private static final int DB_VERSION = 1;
 
-    private Context ctx;
-
     public DatabaseManager (Context context){
         super (context, DB_NAME, null, DB_VERSION);
-        ctx = context;
+
     }
 
     //reset database

@@ -1,5 +1,6 @@
 package com.hinodesoftworks.kanagt;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -34,6 +35,7 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
     }
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -141,7 +143,7 @@ public class QuizSetupFragment extends Fragment implements View.OnClickListener 
     }
 
     public interface OnQuizSetupListener {
-        public void onQuizStartButtonPressed(QuizManager.QuizMode mode, int numOfQuestions,
+        void onQuizStartButtonPressed(QuizManager.QuizMode mode, int numOfQuestions,
                                              int quizSet);
     }
 

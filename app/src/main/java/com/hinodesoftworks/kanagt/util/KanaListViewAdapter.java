@@ -1,6 +1,7 @@
 package com.hinodesoftworks.kanagt.util;
 
 
+import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -32,6 +33,7 @@ public class KanaListViewAdapter extends RecyclerView.Adapter<KanaListViewAdapte
         return new ViewHolder(parent);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int i) {
         mCursor.moveToPosition(i);

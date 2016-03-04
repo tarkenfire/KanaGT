@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     public interface OnHomeFragmentInteractionListener {
-        public void onQuickLinkPressed(View view);
+        void onQuickLinkPressed(View view);
     }
 
 }

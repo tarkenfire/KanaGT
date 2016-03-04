@@ -62,7 +62,7 @@ public class KatakanaListFragment extends Fragment {
 
 
     public interface OnKataListLoadedListener {
-        public void onKataListLoaded(KatakanaListFragment sender);
+        void onKataListLoaded(KatakanaListFragment sender);
     }
 
 }

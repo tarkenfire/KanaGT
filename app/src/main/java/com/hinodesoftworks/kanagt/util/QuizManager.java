@@ -111,9 +111,9 @@ public class QuizManager {
 
     //interface
     public interface QuizListener{
-        public void onQuizStarted(String right, String rightDisplay, String[] wrongs);
-        public void onNextQuestion(String right, String rightDisplay, String[] wrongs);
-        public void onQuizEnded(int correct, int incorrect, long timeTaken);
+        void onQuizStarted(String right, String rightDisplay, String[] wrongs);
+        void onNextQuestion(String right, String rightDisplay, String[] wrongs);
+        void onQuizEnded(int correct, int incorrect, long timeTaken);
     }
 
 }

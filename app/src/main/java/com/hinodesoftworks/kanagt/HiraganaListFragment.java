@@ -65,7 +65,7 @@ public class HiraganaListFragment extends Fragment {
     }
 
     public interface OnHiraListInteractionListener {
-        public void onHiraListFragmentLoaded(HiraganaListFragment sender);
+        void onHiraListFragmentLoaded(HiraganaListFragment sender);
     }
 
 }

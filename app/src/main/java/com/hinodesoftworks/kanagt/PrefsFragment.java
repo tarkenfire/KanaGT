@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceScreen;
-import android.support.annotation.Nullable;
 
 import com.hinodesoftworks.kanagt.dialogs.ClearDatabasePrefDialog;
 
@@ -52,8 +51,8 @@ public class PrefsFragment extends PreferenceFragment implements
 
 
     public interface PreferenceListener{
-        public void onDatabaseDeleteClicked();
-        public void showLicense();
+        void onDatabaseDeleteClicked();
+        void showLicense();
     }
 
 

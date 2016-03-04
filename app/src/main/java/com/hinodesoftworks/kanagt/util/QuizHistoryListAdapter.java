@@ -1,5 +1,6 @@
 package com.hinodesoftworks.kanagt.util;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -38,6 +39,7 @@ public class QuizHistoryListAdapter extends ArrayAdapter<QuizResult> {
         return mItems.get(position);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View holder = convertView;

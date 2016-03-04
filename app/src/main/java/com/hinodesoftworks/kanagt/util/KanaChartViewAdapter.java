@@ -50,6 +50,6 @@ public class KanaChartViewAdapter extends RecyclerView.Adapter<KanaChartViewHold
 
     //callback interface
     public interface OnChartItemClickListener{
-        public void onItemClicked(String selectedCharacter);
+        void onItemClicked(String selectedCharacter);
     }
 }

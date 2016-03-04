@@ -1,6 +1,7 @@
 package com.hinodesoftworks.kanagt.dialogs;
 
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
@@ -45,6 +46,7 @@ public class QuizResultsDialog extends DialogFragment implements View.OnClickLis
         this.mListener = listener;
     }
 
+    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -129,6 +131,6 @@ public class QuizResultsDialog extends DialogFragment implements View.OnClickLis
     }
 
     public interface OnPostQuizResultsListener{
-        public void onQuizResultsClosed();
+        void onQuizResultsClosed();
     }
 }

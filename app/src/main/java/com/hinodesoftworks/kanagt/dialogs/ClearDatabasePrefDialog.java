@@ -31,6 +31,6 @@ public class ClearDatabasePrefDialog extends DialogPreference {
 
 
     public interface ClearDatabaseDialogListener{
-        public void onPositiveResult();
+        void onPositiveResult();
     }
 }

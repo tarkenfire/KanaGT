@@ -1,5 +1,6 @@
 package com.hinodesoftworks.kanagt.dialogs;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.graphics.Color;
@@ -33,6 +34,7 @@ public class KanaChartDisplayDialog extends DialogFragment implements View.OnCli
         return holder;
     }
 
+    @SuppressLint("SetTextI18n")
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

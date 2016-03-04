@@ -84,7 +84,7 @@ public class NavDrawerFragment extends Fragment implements View.OnClickListener,
 
 
     public interface OnNavMenuInteractionListener{
-        public void onNavItemSelected(NavLocation location);
+        void onNavItemSelected(NavLocation location);
     }
 
     //implemented interface methods

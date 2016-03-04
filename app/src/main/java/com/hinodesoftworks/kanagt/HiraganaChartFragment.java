@@ -83,8 +83,8 @@ public class HiraganaChartFragment extends Fragment
     }
 
     public interface OnHiraganaChartFragmentListener {
-        public void onHiraganaChartLoaded(HiraganaChartFragment sender);
-        public void onHiraganaChartItemSelected(HiraganaChartFragment sender, String kana);
+        void onHiraganaChartLoaded(HiraganaChartFragment sender);
+        void onHiraganaChartItemSelected(HiraganaChartFragment sender, String kana);
     }
 
 }

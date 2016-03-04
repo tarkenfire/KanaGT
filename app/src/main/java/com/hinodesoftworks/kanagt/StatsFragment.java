@@ -1,6 +1,7 @@
 package com.hinodesoftworks.kanagt;
 
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -73,6 +74,7 @@ public class StatsFragment extends Fragment implements View.OnClickListener {
         mListener.onStatsFragmentLoaded(this);
     }
 
+    @SuppressLint("SetTextI18n")
     public void updateStats(Cursor hiraStats, Cursor kataStats, Cursor quizStats){
         int hTotal = 0, hUnknown = 0, hKnown = 0, hWellKnown = 0, hMastered = 0,
             kTotal = 0, kUnknown = 0, kKnown = 0, kWellKnown = 0, kMastered = 0;
@@ -292,8 +294,8 @@ public class StatsFragment extends Fragment implements View.OnClickListener {
     }
 
     public interface OnStatsFragmentLoadedListener{
-        public void onStatsFragmentLoaded(StatsFragment sender);
-        public void onHistoryButtonPressed(StatsFragment sender);
+        void onStatsFragmentLoaded(StatsFragment sender);
+        void onHistoryButtonPressed(StatsFragment sender);
     }
 
 }

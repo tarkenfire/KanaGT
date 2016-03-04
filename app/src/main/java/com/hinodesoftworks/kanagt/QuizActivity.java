@@ -1,5 +1,6 @@
 package com.hinodesoftworks.kanagt;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -165,6 +166,7 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     //quiz manager callbacks
+    @SuppressLint("SetTextI18n")
     @Override
     public void onQuizStarted(String right, String rightDisplay,  String[] wrongs) {
         display.setText(rightDisplay);
@@ -203,6 +205,7 @@ public class QuizActivity extends ActionBarActivity implements View.OnClickListe
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onNextQuestion(String right, String rightDisplay, String[] wrongs) {
         display.setText(rightDisplay);

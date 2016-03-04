@@ -82,8 +82,8 @@ public class KatakanaChartFragment extends Fragment
     }
 
     public interface OnKatakanaChartFragmentListener {
-        public void onKatakanaChartLoaded(KatakanaChartFragment sender);
-        public void onKatakanaChartItemSelected(KatakanaChartFragment sender, String kana);
+        void onKatakanaChartLoaded(KatakanaChartFragment sender);
+        void onKatakanaChartItemSelected(KatakanaChartFragment sender, String kana);
     }
 
 }
